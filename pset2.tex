@@ -19,6 +19,23 @@
 \end{center}
 
 \paragraph{Problem 1}
+Let $M = \sup\{|T(f,f)|,\ \|f\| = 1\}$. Clearly $M \leq \|T\|$. To show $M \geq
+\|T\|$, consider the polarization identity:
+\begin{displaymath}
+  (Tf, g) = \frac{1}{4}[(T(f+g),f+g)-(T(f-g),f-g)+i(T(f+ig),f+ig)-i(T(f-ig),
+  f-ig)].
+\end{displaymath}
+Because $(Th,h) = (h,Th) = \overline{(Tf,f)}$, $(Tf,f)$ is real, and thus:
+\begin{displaymath}
+  \text{Re}(Tf,g) = \frac{1}{4}[(T(f+g),f+g)- (T(f-g),f-g)].
+\end{displaymath}
+By definition, $|(Th,h)|\leq M\|h\|^2$, so:
+\begin{align*}
+  \text{Re}(Tf,g) &\leq \frac{M}{4}(\|f+g\|^2 - \|f-g\|^2)\\
+  & \leq \frac{M}{2}(\|f\|^2 + \|g\|^2),
+\end{align*}
+by the parallelogram law. Letting $\|f\| = \|g\| = 1$, we see 
+
 
 
 
@@ -58,14 +75,14 @@ is 0, so no eigenvectors can exist.
 Suppose $\lambda_k \to 0$: we can show compactness by the same argument as in
 the previous problem. Write:
 \begin{displaymath}
-  Tf_k = \sum_{k=1}^N\lambda_ke_k + \sum_{k=N+1}^\infty\lambda_ke_k,
+  Tf_k = \sum_{k=1}^N\lambda_k\alpha_ke_k + \sum_{k=N+1}^\infty\lambda_k\alpha_ke_k,
 \end{displaymath}
 and again pick some $f_m$ from nested $N$-convergent subsequences.
 
 Conversely, suppose $\lambda_k$ doesn't converge to zero, i.e. $\exists
 \varepsilon$ such that for all $N$ there exists $k \geq N$ such that $\lambda_k
 > \varepsilon$. Create from this a sequence $K_N$. Clearly $\{e_{K_N}\}$ have
-norm one but image $\{\lambda_{K_N}e_{K_N}\}$, which has no convergent subsequence
+norm one but Im$\{\lambda_{K_N}e_{K_N}\}$, which has no convergent subsequence
 as they are all orthogonal with norm $> \varepsilon$, i.e. are always at least
 $\sqrt{2}\varepsilon$ apart, by Pythagoras.
 
