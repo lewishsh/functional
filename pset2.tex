@@ -1,0 +1,75 @@
+\documentclass[12pt]{article}
+\newcommand{\F}{\mathcal{F}}
+\renewcommand{\H}{\mathcal{H}}
+\newcommand{\K}{\mathcal{K}}
+\newcommand{\intr}{\int_{-\infty}^{\infty}}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[margin=1.25in]{geometry}
+\usepackage{enumitem}
+
+
+\begin{document}
+\begin{center}
+  Lewis Ho\\
+  Functional Analysis\\
+  Pset 2
+\end{center}
+
+\paragraph{Problem 1}
+
+
+
+\paragraph{Problem 4}
+
+Boundedess: by Pythagoras,
+\begin{displaymath}
+  \|Tf\|^2 = \|\sum_k\alpha_k\frac{e_{k+1}}{k}\|^2 = \sum_k\frac{\alpha^2_k}{k^2}
+  \leq \sum_k \alpha^2_k = \|f\|.
+\end{displaymath}
+
+Compactness: let $a_n=\sum_k\alpha_ke_k$ have norm $\leq 1$. We can write
+\begin{displaymath}
+  Ta_n = \sum_{k=1}^\infty\frac{\alpha_ke_{k+1}}{k} = 
+  \sum_{k=1}^N\frac{\alpha_ke_{k+1}}{k} + \sum_{k=N+1}^\infty \frac{\alpha_ke_{k+1}}
+  {k}
+\end{displaymath}
+The second term converges to zero in norm as $N \to \infty$, so for any $m$, we can
+choose $N$ such that this term is less than $1/{10m}$, and then because the
+first term is finite dimensional, there exists a subsequence that converges
+in that term, and we can choose some $n_i$ such that the distance
+between the first $N$ terms of any two $a_{n_j}$ with $j\geq i$ is also less than
+$1/{10m}$. Repeat, this time with the $N$-convergent subsequence, and index
+the resultant (sub)subsequence $\{a_m\}$. Clearly for $x, y \geq m$, $\|a_x
+- a_y\| \leq \frac{1}{m} \to 0$.
+
+No eigenvectors: suppose $\sum a_ke_k$ was an eigenvector, then there exists
+some nonzero coefficient $a_k$. Because $Tf = \sum \frac{\lambda \alpha_{k}{k}
+  e_{k+1}}{k}$, $\frac{\lambda\alpha_{k-1}}{k-1} = a_k$, i.e. $a_{k-1}$ is
+nonzero and by induction $a_1$ is nonzero. But the coefficient of $e_1$ in $Tf$
+is 0, so no eigenvectors can exist.
+
+
+
+\paragraph{Problem 5}
+
+Suppose $\lambda_k \to 0$: we can show compactness by the same argument as in
+the previous problem. Write:
+\begin{displaymath}
+  Tf_k = \sum_{k=1}^N\lambda_ke_k + \sum_{k=N+1}^\infty\lambda_ke_k,
+\end{displaymath}
+and again pick some $f_m$ from nested $N$-convergent subsequences.
+
+Conversely, suppose $\lambda_k$ doesn't converge to zero, i.e. $\exists
+\varepsilon$ such that for all $N$ there exists $k \geq N$ such that $\lambda_k
+> \varepsilon$. Create from this a sequence $K_N$. Clearly $\{e_{K_N}\}$ have
+norm one but image $\{\lambda_{K_N}e_{K_N}\}$, which has no convergent subsequence
+as they are all orthogonal with norm $> \varepsilon$, i.e. are always at least
+$\sqrt{2}\varepsilon$ apart, by Pythagoras.
+
+\paragraph{Problem 6}
+
+We first show an eigenvec
+\end{document}

@@ -1,0 +1,32 @@
+\documentclass[11pt]{article}
+\newcommand{\F}{\mathcal{F}}
+\newcommand{\H}{\mathcal{H}}
+\newcommand{\K}{\mathcal{K}}
+\newcommand{\intr}{\int_{-\infty}^{\infty}}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{enumitem}
+
+
+\begin{document}
+\begin{center}
+  Lewis Ho\\
+  Functional Analysis\\
+  Pset 2
+\end{center}
+
+\paragraph{Problem 1}
+
+
+
+\paragraph{Problem 4}
+
+Boundedess: by pythagoras,
+\begin{displaymath}
+  \|Tf\|^2 = \|\sum_k\alpha_k\frac{e_{k+1}}{k}\|^2 = \sum_k\frac{\alpha^2_k}{k^2} \leq \sum_k \alpha^2_k = \|f\|.
+\end{displaymath}
+
+\end{document}

@@ -1,0 +1,76 @@
+\documentclass[11pt]{article}
+\newcommand{\F}{\mathcal{F}}
+\newcommand{\K}{\mathcal{K}}
+\newcommand{\intr}{\int_{-\infty}^{\infty}}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[margin=1.25in]{geometry}
+\usepackage{enumitem}
+\newcommand{\s}{\text{pan}}
+\newcommand{\etop}{(E^\top)^\top}
+\newcommand{\io}{\int_0^1}
+\renewcommand{\H}{\mathcal{H}}
+\newcommand{\Ss}{S_1\cap S_2}
+\newcommand{\PP}{P_1 P_2}
+
+\begin{document}
+\begin{flushleft}
+  Lewis Ho\\
+  Functional Analysis\\
+  Practice Pset 1
+\end{flushleft}
+
+
+\paragraph{Problem 1}
+
+For any point $v$ in the range of $P$ (i.e. $S$), the only point $u$ satisfying
+$v-u\ \bot\ S$ is $v$ itself as $v-u \in S$. Thus $P^2 = P$.
+
+Let $e_i$ be an orthogonal basis of $S$ and $f_i$ an orthogonal basis of $S^\bot$
+. Then any $v = \sum_i a_ie_i + \sum_i b_if_i$, and $Pv = \sum_i a_ie_i$. Then
+if $u = \sum_i c_ie_i + \sum_i d_if_i$, $(Pv, u) = \sum_i a_ic_i = (v, Pu)$, i.e.
+$P = P^*$.
+
+\paragraph{Problem 2}
+
+Consider $(x - Px, Py)$:
+\begin{displaymath}
+  (x-Px,Py)=(x-Px,P^2y)=(P(x-Px),Py)=0
+\end{displaymath}
+It remains to be shown that the range of $P$ is a closed subspace. This follows
+from the continuity of the function which follows from its boundedness.
+
+\paragraph{Problem 3}
+
+Given that $A_n$ is a finite rank operator, for the ``if'' statement it suffices
+to show that $\|A_n-A\| \to 0$, and we do this by showing $\|(A_n-A)v\| \to 0$
+for all $v$. $\|(A_n-A)v\| \leq \alpha^{(n)}\|v\|$, where $\alpha^{(n)}$ is the
+supremum of $\alpha_i$ with $i \geq n$. Clearly as $|\alpha_n\| \to 0$, this
+quantity goes to zero too.
+
+For the converse, suppose there always exists, for every $n$, some $\alpha_i$
+greater than some epsilon. Then $\{Ae_i\}$ is not precompact.
+
+\paragraph{Problem 4}
+
+\begin{displaymath}
+  \|Tf\| =\left(\int\left|\int K(x,y)f(y)dy\right|^2dx\right)^{1/2}
+  \leq \left(\int|Af(x)|^2dx\right)^{1/2}\leq A\|f\|.
+\end{displaymath}
+
+\paragraph{Problem 5}
+If $M$ and $N$ are the norms of $T_1$ and $T_2$, then $(T_1+T_2)v = T_1v + T_2v
+\leq (M+N)\|v\|$, which means the norm of the sum must be less than or equal
+to $M+N$.
+
+\paragraph{Problem 6}
+
+Let $\tilde{A}(v) = Av$ for $v \in \H_0$, and $\tilde{A}\lim v_n = \lim Av_n$
+for $v_n \in \H_0$. To show that such a limit exists, consider $\|Av_n - Av_m\|=
+\|A(v_n-v_m)\|$. Because $A$ is bounded, this is less than some $M\|v_n-v_m\| =
+M\varepsilon_n$, i.e. $Av_n$ is Cauchy. Boundedness follows from the continuity
+of the norm: $\|Av\| = \|\lim Av_n\| = \lim \|Av_n\|$, and $\|Av_n\|\leq M\|v_n
+\|\ \forall v_n$.
+\end{document}

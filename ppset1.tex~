@@ -1,0 +1,22 @@
+\documentclass[11pt]{article}
+\newcommand{\F}{\mathcal{F}}
+\newcommand{\K}{\mathcal{K}}
+\newcommand{\intr}{\int_{-\infty}^{\infty}}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{enumitem}
+\newcommand{\s}{\text{span}}
+\newcommand{\etop}{(E^\top)^\top}
+\newcommand{\io}{\int_0^1}
+\renewcommand{\H}{\mathcal{H}}
+\newcommand{\Ss}{S_1\cap S_2}
+\newcommand{\PP}{P_1 P_2}
+
+\begin{document}
+\paragraph{Problem 1}
+
+The 
+\end{document}
