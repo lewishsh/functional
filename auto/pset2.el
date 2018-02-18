@@ -16,6 +16,8 @@
     "geometry")
    (TeX-add-symbols
     "F"
+    "ran"
+    "R"
     "K"
     "intr"))
  :latex)

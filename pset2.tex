@@ -1,5 +1,9 @@
 \documentclass[12pt]{article}
 \newcommand{\F}{\mathcal{F}}
+\renewcommand{\dim}{\text{dim}}
+\renewcommand{\null}{\mathcal{N}}
+\newcommand{\ran}{\mathcal{R}}
+\newcommand{\R}{\mathcal{R}}
 \renewcommand{\H}{\mathcal{H}}
 \newcommand{\K}{\mathcal{K}}
 \newcommand{\intr}{\int_{-\infty}^{\infty}}
@@ -15,7 +19,7 @@
 \begin{center}
   Lewis Ho\\
   Functional Analysis\\
-  Pset 2
+  Problem Set 2
 \end{center}
 
 \paragraph{Problem 1}
@@ -34,17 +38,18 @@ By definition, $|(Th,h)|\leq M\|h\|^2$, so:
   \text{Re}(Tf,g) &\leq \frac{M}{4}(\|f+g\|^2 - \|f-g\|^2)\\
   & \leq \frac{M}{2}(\|f\|^2 + \|g\|^2),
 \end{align*}
-by the parallelogram law. Letting $\|f\| = \|g\| = 1$, we see 
-
-
-
+by the parallelogram law. Letting $\|f\| = \|g\| = 1$, we see $|\text{Re}(Tf,g)
+| \leq M$. Finally, substituting $e^{i\theta}g$ for $g$, we see that from the fact
+that 1) for some $\theta$, $\text{Im}(T(f, e^{i\theta}g)) = 0$, and 2) $|T(f, e^
+{i\theta}g)|$ is invariant under $\theta$, we conclude that $(Tf, g) \leq M$ for
+$f$, $g$ with norms less than 1, and thus $M = \|T\|$.
 
 \paragraph{Problem 4}
 
 Boundedess: by Pythagoras,
 \begin{displaymath}
   \|Tf\|^2 = \|\sum_k\alpha_k\frac{e_{k+1}}{k}\|^2 = \sum_k\frac{\alpha^2_k}{k^2}
-  \leq \sum_k \alpha^2_k = \|f\|.
+  \leq \sum_k \alpha^2_k = \|f\|^2.
 \end{displaymath}
 
 Compactness: let $a_n=\sum_k\alpha_ke_k$ have norm $\leq 1$. We can write
@@ -77,16 +82,57 @@ the previous problem. Write:
 \begin{displaymath}
   Tf_k = \sum_{k=1}^N\lambda_k\alpha_ke_k + \sum_{k=N+1}^\infty\lambda_k\alpha_ke_k,
 \end{displaymath}
-and again pick some $f_m$ from nested $N$-convergent subsequences.
+and again pick some $f_m$ from nested $N$-convergent subsequences. Note that
+the second term decreases in norm to zero exactly because $\lambda_n\to 0$, and
+the first sits in a compact set as before.
 
 Conversely, suppose $\lambda_k$ doesn't converge to zero, i.e. $\exists
 \varepsilon$ such that for all $N$ there exists $k \geq N$ such that $\lambda_k
 > \varepsilon$. Create from this a sequence $K_N$. Clearly $\{e_{K_N}\}$ have
-norm one but Im$\{\lambda_{K_N}e_{K_N}\}$, which has no convergent subsequence
+norm one but the image of $\{\lambda_{K_N}e_{K_N}\}$ has no convergent
+subsequence
 as they are all orthogonal with norm $> \varepsilon$, i.e. are always at least
 $\sqrt{2}\varepsilon$ apart, by Pythagoras.
 
 \paragraph{Problem 6}
 
-We first show an eigenvec
+
+\paragraph{Problem 7}
+
+Proof by contradiction: consider the matrix form of $T$, with components:
+\begin{displaymath}
+  a_{jk} = \int_{[0,1]^2}K(x,y)e^{2\pi ijy}e^{2\pi i kx}dxdy.
+\end{displaymath}
+Because $T$ is diagonalizable, this matrix $A$ can be written $BDB^{-1}$, where
+$D$ is a diagonal matrix of eigenvalues and $B$ transitions the eigenvector basis
+$\{\phi_n\}$ to the fourier basis. Note that the columns of $B$ and $B^{-1}$ square
+sum to 1, as both the fourier basis and $\{\phi_n\}$ are bases with norm 1.
+
+\paragraph{Problem 8}
+
+\paragraph{Problem 9}
+
+\begin{enumerate}[label=\alph*)]
+\item Because $RK = I-A$, we know that $\dim(\null(RK)) \leq \infty$. Clearly
+  $\dim(\null(K)) \leq \dim(\null(RK)) \leq \infty$. Then suppose $\dim(\null(R))
+  = \infty$, then $\dim(K^{-1}(\null(R))) = \infty$, but that is a subset of
+  $\null(RK)$, which we know to be finite dimensional. Thus both are of finite
+  dimension.
+\item If $f \in \null(K^*)^\bot$,  $f \in \ran(K)$ because $K$ is compact, thus
+  $K\phi = f$ has solutions, as does $RK\phi = Rf$. 
+\item Define $R^{-1}: \mathcal{H} \to \R(K)$ and $K^{-1}: \R(K)\to\mathcal{H}$
+  to be the right- and left-inverses of $R$ and $K$ in the following sense:
+  $R^{-1}$ maps any element in $\H$ to its preimage in $\R(K)$, and $K^{-1}$
+  maps any element in the range of $K$ to its preimage in $\H$. These functions
+  are well defined because in order for $RK$ to be bijective, $R$ must be
+  injective and surjective on $\R(K)$, and $K$ injective on $\H$. Clearly $S =
+  K^{-1}R^{-1}$ is well defined on $\H$ and is the inverse to $RK$. In this case,
+  $KSR = KK^{-1}R^{-1}R = I$, and thus $\R(I-KSR) = \{0\}$.
+  This is trivially a subset of $\null(K)$. Likewise the adjoint of 0 is 0,
+  so this is true for the adjoint case too. Finally, if $f\in\null(K^*)^\bot$, it
+  is in the domain of $SR$ as defined above ($SR = K^{-1}R^{-1}R = K^{-1}$, so
+  its domain is $\R(K)$), and clearly $KSRf = KK^{-1}f = f$.
+\end{enumerate}
+
+
 \end{document}
