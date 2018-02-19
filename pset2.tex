@@ -128,7 +128,7 @@ $\sqrt{2}\varepsilon$ apart, by Pythagoras.
   $a_{ij}$ satisfying $T\phi_n = \lambda_n$:
   \begin{displaymath}
     \int\sum_i\sum_ja_{ij}\phi_i(x)\phi_j(y)\phi_n(y)dy
-    = \int\sum_ia_{in}\phi_i(x),
+    = \sum_ia_{in}\phi_i(x),
   \end{displaymath}
   because $\phi_j$ and $\phi_n$ are orthogonal when $j\neq n$. Because $\phi_i$
   are linearly independent, the only way this can equal $\lambda_n\phi_n$ is if
@@ -158,10 +158,15 @@ $\sqrt{2}\varepsilon$ apart, by Pythagoras.
   eigenvector), so the eigenvectors of $T_1$ must also be those for
   $T_2$, and vice versa.
 \item Write $T = \frac{T+T^*}{2} + i\frac{T-T^*}{2i}$. Clearly both fractions
-  are symmetric. Further, $(T+T^*)(T-T^*)= T^2 + T^*T+TT^*+T*^2 = T^2-T^*2
+  are symmetric. Further, $(T+T^*)(T-T^*)= T^2 + T^*T+TT^*+T^{*2} = T^2-T^{*2}
   = (T-T^*)(T+T^*)$, so they commute. By a), there is thus a basis $\{e_i\}$ of
   eigenvectors for both fractions. Thus $Te_i = (\lambda_i + \mu_i)e_i$, i.e.
   $T$ is diagonalizable.
+\item $U$ is normal: for any $a$, $b$, $(a,b) = (Ua,Ub) = (a,U^*Ub)$, so
+  in particular given this is true for all $a$, $b = U^*Ub$, so $U^*U = I$.
+  The same can be derived for $UU^*$, so $U$ is normal. Additionally, by
+  definition, $U$ is type-2 Fredholm, i.e. compact, so by b), $U$ must be
+  diagonalizable.
 \end{enumerate}
 
 \paragraph{Problem 9}
