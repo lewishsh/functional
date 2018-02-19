@@ -51,7 +51,7 @@ values of $\alpha$ for which $K$ is square integrable will yield viable kernels.
 Specifically, we're worried about singularities at $y=x$. Given that square
 integrating our bound over $x$ and $y$ yields the ``antiderivative'':
 \begin{displaymath}
-  \frac{C}{|x-y|^{2(\alpha - n)}},
+  \frac{C'}{|x-y|^{2(\alpha - n)}},
 \end{displaymath}
 where $n$ is the dimension of $G$, we can see this integral converges when
 $\alpha \leq n$.
@@ -130,8 +130,8 @@ $\sqrt{2}\varepsilon$ apart, by Pythagoras.
 
 Let $Tv = \lambda v$. The operator $T-\lambda I$ is type 2 Fredholm as $T$ is
 compact, and has a nontrivial kernel that includes $v$. Thus its adjoint
-$T^* + \bar{\lambda}I$ also has a nontrivial kernel. I.e. there exists some
-$w$ such that $T^*w = -\bar{\lambda}w$.
+$T^* - \bar{\lambda}I$ also has a nontrivial kernel. I.e. there exists some
+$w$ such that $T^*w = \bar{\lambda}w$.
 
 \paragraph{Problem 7}
 \begin{enumerate}[label=\alph*)]
@@ -180,9 +180,16 @@ $w$ such that $T^*w = -\bar{\lambda}w$.
   $T$ is diagonalizable.
 \item $U$ is normal: for any $a$, $b$, $(a,b) = (Ua,Ub) = (a,U^*Ub)$, so
   in particular given this is true for all $a$, $b = U^*Ub$, so $U^*U = I$.
-  The same can be derived for $UU^*$, so $U$ is normal. Additionally, by
-  definition, $U$ is type-2 Fredholm, i.e. compact, so by b), $U$ must be
-  diagonalizable.
+  The same can be derived for $UU^*$, so $U$ is normal. Next, consider $T$
+  in $U = \lambda I - T$. Because $U$ is normal:
+  \begin{displaymath}
+    UU^* = (\lambda I-T)(\lambda I-T)^*= \lambda^2I- \lambda T^* - \bar{\lambda}
+    T - TT^*.
+  \end{displaymath}
+  Comparing this with $U^*U = \lambda^2I-\lambda T^*-\bar{\lambda}T-T^*T$, we
+  see $T$ must be normal too. Because $T$ is compact, by b) there exists some
+  basis of eigenvectors $\{e_i\}$ of $T$, and $Ue_i = \lambda Ie_i-Te_i =
+  (\lambda - \mu_i)e_i$, i.e. $\{e_i\}$ is a basis of eigenvectors of $U$.
 \end{enumerate}
 
 \paragraph{Problem 9}
