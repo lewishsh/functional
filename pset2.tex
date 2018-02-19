@@ -1,6 +1,7 @@
 \documentclass[12pt]{article}
 \newcommand{\F}{\mathcal{F}}
 \renewcommand{\dim}{\text{dim}}
+\renewcommand{\chi}{\mathcal{X}}
 \renewcommand{\null}{\mathcal{N}}
 \newcommand{\ran}{\mathcal{R}}
 \newcommand{\R}{\mathcal{R}}
@@ -43,6 +44,26 @@ by the parallelogram law. Letting $\|f\| = \|g\| = 1$, we see $|\text{Re}(Tf,g)
 that 1) for some $\theta$, $\text{Im}(T(f, e^{i\theta}g)) = 0$, and 2) $|T(f, e^
 {i\theta}g)|$ is invariant under $\theta$, we conclude that $(Tf, g) \leq M$ for
 $f$, $g$ with norms less than 1, and thus $M = \|T\|$.
+
+\paragraph{Problem 3}
+\begin{enumerate}[label=\alph*)]
+\item The linearity of $T$ follows from the linearity of multiplication. The
+  boundedness of $T$ can be shown by noting that:
+  \begin{displaymath}
+    \|Tf\|^2 = \int_0^1|tf(t)|^2dt \leq \int_0^1|f(t)|^2dt = \|f\|^2.
+  \end{displaymath}
+  Compactness: take a bounded orthonormal basis spanning $\mathbb{L}^2([0.5,1])$,
+  (e.g. the fourier basis) say
+  $\{e_i\}$ (define them as 0 elsewhere). Consider the sequence $f_n = e_i/t$:
+  it is bounded as
+  \begin{displaymath}
+    \|f_n\|^2 = \int_{0.5}^1|e_i/t|^2dt\leq \int_{0.5}^1\frac{M}{t^2}dt = M,
+  \end{displaymath}
+  but $Tf_n = e_n$, which, being orthonormal, contain no convergent subsequence.
+\item Suppose $\lambda$ is an eigenvalue for some $f$: $tf(t) = \lambda f(t)$,
+  thus $(t-\lambda)f(t) = 0\ \forall t \in [0,1]$. Clearly ths is possible only
+  when $f(t) = 0$, i.e. there are no eigenvectors.
+\end{enumerate}
 
 \paragraph{Problem 4}
 
@@ -96,19 +117,48 @@ $\sqrt{2}\varepsilon$ apart, by Pythagoras.
 
 \paragraph{Problem 6}
 
-
 \paragraph{Problem 7}
+\begin{enumerate}[label=\alph*)]
+\item An operator is Hilbert-Schmidt if $\sum\|Te_i\|^2 < \infty$, where $e_i$
+  is an orthonormal basis. $\{\phi_n\}$ constitutes one such basis, and
+  $\|T\phi_n\|^2 = |\lambda_n|$. Thus $T$ is Hilbert-Schmidt only if
+  $\sum_k|\lambda_n|^2 < \infty$.
+\item Given $\{\phi_n\}$ is a basis for $\mathbb{L}^2([0,1])$, we can write
+  $K(x,y) = \sum_i\sum_ja_{ij}\phi_i(x)\phi_j(y)$. Then we find the values of
+  $a_{ij}$ satisfying $T\phi_n = \lambda_n$:
+  \begin{displaymath}
+    \int\sum_i\sum_ja_{ij}\phi_i(x)\phi_j(y)\phi_n(y)dy
+    = \int\sum_ia_{in}\phi_i(x),
+  \end{displaymath}
+  because $\phi_j$ and $\phi_n$ are orthogonal when $j\neq n$. Because $\phi_i$
+  are linearly independent, the only way this can equal $\lambda_n\phi_n$ is if
+  $a_{jn} =\lambda_n$ when $j=n$ and 0 otherwise. I.e. $K(x,y) = \sum_k
+  \lambda_k\phi_k(x)\phi_k(y)$.
+\item This is basically the same as part a): an operator is Hilbert-Schmidt if
+  and only if $\sum_k\|Te_k\|^2 < \infty$, and $\|Te_k\|^2 = |\lambda_k|^2$ if
+  we let $\{e_k\}$ be the set of eigenvectors of our symmetric and compact
+  operator. Thus $\sum_k|\lambda_k|^2 < \infty$ is necessary and sufficient.
+  
 
-Proof by contradiction: consider the matrix form of $T$, with components:
-\begin{displaymath}
-  a_{jk} = \int_{[0,1]^2}K(x,y)e^{2\pi ijy}e^{2\pi i kx}dxdy.
-\end{displaymath}
-Because $T$ is diagonalizable, this matrix $A$ can be written $BDB^{-1}$, where
-$D$ is a diagonal matrix of eigenvalues and $B$ transitions the eigenvector basis
-$\{\phi_n\}$ to the fourier basis. Note that the columns of $B$ and $B^{-1}$ square
-sum to 1, as both the fourier basis and $\{\phi_n\}$ are bases with norm 1.
+\end{enumerate}
 
 \paragraph{Problem 8}
+\begin{enumerate}[label=\alph*)]
+\item Let $\{e_k\}$ be a basis of eigenvectors for $T_1$. Then $T_1T_2e_k =
+  T_2T_1e_k = T_2\lambda_ke_k = \lambda_kT_2e_k$. In other words, $T_2e_k$ is
+  an eigenvector for $T_1$ with eigenvalue $\lambda_k$. Next, to show that
+  $e_k$ is an eigenvector of $T_2$ (with possibly eigenvalue 0), we consider
+  the alternative: that there is a set of eigenvectors $\{e_i\}$ of $T_1$ which
+  all have the same eigenvalues, and $T_2$ takes them to each other. Clearly
+  they have to be a closed cycle (i.e. there is some $k$ such that $T_2^ke_k =
+  \lambda^ke_k$), else $T_2$ is clearly not compact. However, this would imply
+  there was some $k\geq 1$ such that $\sum\mu_i^ka_if_i = C\sum\mu_ia_if_i$,
+  where $\sum a_if_i = e_k$ and $f_i$ are eigenvectors of $T_2$. This is
+  clearly impossible, unless $\mu_i$ = 0 or 1 (in which case $e_k$ would be an
+  eigenvector), so the eigenvectors of $T_1$ must also be those for
+  $T_2$, and vice versa.
+\item 
+\end{enumerate}
 
 \paragraph{Problem 9}
 
