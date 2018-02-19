@@ -45,6 +45,19 @@ that 1) for some $\theta$, $\text{Im}(T(f, e^{i\theta}g)) = 0$, and 2) $|T(f, e^
 {i\theta}g)|$ is invariant under $\theta$, we conclude that $(Tf, g) \leq M$ for
 $f$, $g$ with norms less than 1, and thus $M = \|T\|$.
 
+\paragraph{Problem 2}
+All $\mathbb{L}^2$ functions can be approximated by continuous functions, all
+values of $\alpha$ for which $K$ is square integrable will yield viable kernels.
+Specifically, we're worried about singularities at $y=x$. Given that square
+integrating our bound over $x$ and $y$ yields the ``antiderivative'':
+\begin{displaymath}
+  \frac{C}{|x-y|^{2(\alpha - n)}},
+\end{displaymath}
+where $n$ is the dimension of $G$, we can see this integral converges when
+$\alpha \leq n$.
+
+(Sorry---didn't have time to find counterexamples for $\alpha > n$.)
+
 \paragraph{Problem 3}
 \begin{enumerate}[label=\alph*)]
 \item The linearity of $T$ follows from the linearity of multiplication. The
@@ -94,8 +107,6 @@ some nonzero coefficient $a_k$. Because $Tf = \sum \frac{\lambda \alpha_{k}{k}
 nonzero and by induction $a_1$ is nonzero. But the coefficient of $e_1$ in $Tf$
 is 0, so no eigenvectors can exist.
 
-
-
 \paragraph{Problem 5}
 
 Suppose $\lambda_k \to 0$: we can show compactness by the same argument as in
@@ -116,6 +127,11 @@ as they are all orthogonal with norm $> \varepsilon$, i.e. are always at least
 $\sqrt{2}\varepsilon$ apart, by Pythagoras.
 
 \paragraph{Problem 6}
+
+Let $Tv = \lambda v$. The operator $T-\lambda I$ is type 2 Fredholm as $T$ is
+compact, and has a nontrivial kernel that includes $v$. Thus its adjoint
+$T^* + \bar{\lambda}I$ also has a nontrivial kernel. I.e. there exists some
+$w$ such that $T^*w = -\bar{\lambda}w$.
 
 \paragraph{Problem 7}
 \begin{enumerate}[label=\alph*)]
