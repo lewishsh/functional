@@ -1,0 +1,204 @@
+\documentclass[12pt]{article}
+\newcommand{\R}{\mathbb{R}}
+\renewcommand{\H}{\mathcal{H}}
+\newcommand{\N}{\mathbb{N}}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[margin=1.25in]{geometry}
+\usepackage{enumitem}
+\begin{document}
+\begin{center}
+  Lewis Ho\\
+  Functional Analysis\\
+  Problem Set 3
+\end{center}
+
+\paragraph{Problem 1}
+
+Any linear functional can be fully determined by its actions on a basis by
+linearity:
+\begin{displaymath}
+  f\left(\sum_ka_ke_k\right) = \sum_k a_kf(e_k) \in \mathbb{R}
+\end{displaymath}
+thus any $f$ can be defined as a sequence $\{a_n\}$ where $f(e_k) = a_n$. If
+$\{a_n\} \in \ell^1(\mathbb{N})$, for any $\{b_n\} \in c_0(\N)$, $|f_{a}
+(\sum_kb_k)| = |\sum_ka_kb_k| \leq \max(b_n)\sum|a_k| \leq \infty$. Note that we
+can take the max of $\{b_n\}$ because for any epsilon there are only finitely
+many elements in the sequence greater than it. Hence $\ell^1(\N) \subseteq
+c_0(\N)^*$.
+
+Conversely, given some $\{a_n\}$ such that $\sum|a_n| = \infty$, we can find a
+sequence of indices $n_1,\ n_2,\ldots$ such that $\sum_{i=1}^{n_k}|a_i| \geq
+k^2$. Consider then the sequence $\{b_n\}$, with $b_i = |1/k|$ for $n_{k-1} <
+i \leq n_k$, and the sign of $b_i$ the same as the sign of $a_i$. Then:
+\begin{displaymath}
+  f_a(\{b_n\}) \geq \sum_{i=1}^{n_k}a_ib_i \geq \frac{1}{k}\sum_{i=1}^{n_k}|a_i|
+  \geq k^2/k \to \infty.
+\end{displaymath}
+Thus $f$ is unbounded and $\ell^1(\N) \supseteq c_0(\N)^*$.
+
+\paragraph{Problem 2}
+
+Suppose not. Let $X=\ell^\infty(\N)$ contain a countable subset $\{w_i\}$ that is
+dense. With Gram-Schmidt we obtain a orthonormal basis $\{v_i\}$ that is
+countable. Consider the map $U(v_i) = e_i$, where $\{e_i\}$ is the standard
+``basis''---sequences of zeros, except for 1 in the $i$th element. For any
+$f = \sum_ia_iv_i$,
+\begin{displaymath}
+  \|U(f)\| = \|U(\sum_ia_iv_i)\| = \|\sum_ia_iU(v_i)\|
+  = \|\sum_ia_ie_i\| = \sup_i\{a_i\} = \|f\|
+\end{displaymath}
+$U$ is clearly linear, and thus
+$X$ is unitarily equivalent to the closure of the space spanned
+by $\{e_i\}$ with the same norm, say, $Y$.
+
+But $Y$ is not separable. Let $\{a_n\}$ be the sequence with $a_n = 1$ for
+all $n$. For any finite linear combination $\sum_i\alpha_ie_{k_i}$ of $\{e_i\}$,
+\begin{displaymath}
+  \|\{a_n\} - \sum_i^N\alpha_ie_{k_i}\| \geq 1
+\end{displaymath}
+as $a_n$ has infinite terms that are 1 compared to the finite ones in finite
+linear combinations of $\{e_i\}$. Hence there is always some $j$ where the
+$j$th term of $\{a_n\}$ is 1 and that of our linear combination is 0.
+
+The fact that $X$ is also cannot be separable follows from unitary equivalence.
+Suppose not: consider $U^{-1}(\{a_i\}) = b$. By separability, $\sum_i^nc_iv_i
+\to b$ as $n\to \infty$, i.e. for any given $\varepsilon$, we can find some
+$N$ such that for $n\geq N$:
+\begin{displaymath}
+  \|b - \sum_i^nc_iv_i\| < \varepsilon.
+\end{displaymath}
+By the properties of $U$,
+\begin{displaymath}
+  \|U(b - \sum_i^nc_iv_i)\| = \|U(b)- U(\sum_i^nc_iv_i)\| =
+  \|\{a_n\} - \sum_i^Nc_ie_i\| < \varepsilon
+\end{displaymath}
+in which case linear combinations of $\{e_i\}$ converge to $\{a_i\}$, a
+contradiction. Thus we've shown that no subset of $X$ can be dense.
+
+
+
+\paragraph{Problem 3}
+
+It is a subspace by the fact that if $a_n \to a$ and $b_n \to b$, $\lim a_n + b_n
+$ exists, and is in fact $a + b$. Thus $\{a_n\} + \{b_n\} \in c$. Let $\{b_n\}$
+be the limit of a sequence of sequences $\{a_n\}_k$. For any $\varepsilon > 0$,
+there exists some $c_n = \{a_n\}_i$ such that $\sup|c_n - b_n| < \varepsilon/3$,
+and also some $N$, because $\{c_n\}$ is convergent, such that $|a_m - a_n| <
+\varepsilon/3$ for all $m,\ n > N$. Thus for any $m,\ n > N$,
+\begin{displaymath}
+  |b_n - b_m| \leq |b_n-c_n| + |b_m-c_m| + |c_n-c_m| < \varepsilon,
+\end{displaymath}
+i.e. $\{b_n\}$ is Cauchy and thus in $c$ as well. $c$ is therefore closed.
+
+\paragraph{Problem 4}
+No idea what a Borel measure is.
+
+\paragraph{Problem 5}
+$\ell(f) = f(x_0) \leq \sup(f) = \|f\|$ on $[0,1]$. Additionally, there are
+continuous functions that attain their maximum on $x_0$, thus the
+inequality is sometimes an equality and $\|\ell\| = 1$.
+
+\paragraph{Problem 6}
+\begin{enumerate}[label=(\alph*)]
+\item 
+  Let $f,\ g \in E_\alpha$. For all $\lambda \in \mathbb{R}$, $\lambda f(0) +
+  (1-\lambda)g(0) = \lambda \alpha + (1-\lambda) \alpha = \alpha$, thus all
+  convex combinations of $f$ and $g$ are clearly also in $E_\alpha$.
+
+  Then, given
+  any $f \in X$ and $\varepsilon > 0$, there exists some continuous function
+  $g \in X$ such that $\|f - g\| < \varepsilon/2$, (given the density of the
+  continuous functions in $L^2$). Then we can find another function $h \in E_\alpha
+  $such that $\|g-h\| < \varepsilon/2$, where $h = g$ in $[-1,1]\setminus [-\delta
+  ,\delta]$, and $h$ decreases/increases linearly to $\alpha$ at $0$. We can find
+  such a close $h$ because we can, by decreasing $\delta$, decrease the measure
+  of the set on which $h$ differs from $g$ arbitrarily small, and this difference
+  (squared) is bounded given the continuity of both functions and the compactness
+  of our domain.
+\item Express differences maybe?
+  
+\end{enumerate}
+
+\paragraph{Problem 7}
+
+Disjointness: a polynomial cannot both have a negative leading
+coefficient and all non-negative coefficients, thus they are disjoint.
+Convexity: the sum of two polynomials with negative leading coefficients has
+a negative leading coefficient, this being either the sum of both or just one
+of them; and the sum of two polynomials with non-negative coefficients has
+non-negative coefficients as well. Finally, multiplying polynomials with
+$0\leq \lambda \leq 1$ doesn't change the sign of its coefficients, thus both
+$A$ and $B$ are convex.
+
+Suppose there does exist some nonzero $\ell$ such that $\ell(a) \leq \ell(b)$,
+for all $a$ in A and $b$ in $B$,
+then by the completeness of $\mathbb{R}$, there exists a real $C$ (e.g. the
+supremum of $\ell(a)$) such that $\ell(a)\leq C\leq \ell(b)$ for all $a$ and
+$b$. Because $0 \in B$, by the linearity of $\ell$, $C \leq \ell(0) = 0$.
+However, because for any monomial $a \in A$, $a/n \in A$ also, for $n>0$, thus
+$\ell(a/n) = \ell(a)/n \to 0$ as $n\to\infty$. Thus $C \geq 0$, i.e. $C = 0$.
+
+If $\ell$ is nonzero, there must be some monomial $x^n$ such that $\ell(x^n) 
+\neq 0$,
+as all polynomials are finite sums of monomials, and thus if they all mapped
+to 0, $\ell$ would be 0 on all of $\mathcal{P}$. Clearly the sign of $\ell(ax^n
+)$ is the same as the sign of $a$. Consider then the polynomial $p = -x^{n+1}
++ax^n \in A$: because we can make $a$ and thus $\ell(ax^n)$
+arbitrarily large, $\ell(-x^{n+1})$ cannot be finite and yet keep $\ell(p) = 
+\ell(-x^{n+1}) + \ell(ax^n)$ to remain $\leq 0$ for all $a>0$ i.e. no such
+linear functional can exist.
+
+\paragraph{Problem 8}
+Let $K_1$ be the half space with $y \leq 0$, and let $K_2 = \{(x,y) \in \R^2\
+|\ x \geq 1,\ y \geq 1/x\}$. Both sets are convex: the half space is convex,
+and $\frac{1}{x}$ is a convex function, so its upper contour sets are convex.
+Because the boundary of $K_1$ is the $x$ axis,
+the only hyperplanes (lines) not intersecting $K_1$ must be parallel to the $x$
+axis and $\geq 0$, i.e. $\ell(x,y) = ay$, where $a \geq 0$. However, the infimum
+for $y$ where $(x,y) \in K_2$ is 0, thus:
+\begin{displaymath}
+  \sup_{x\in K_1}\ell(x) = 0 = \inf_{y\in K_2}\ell(y),
+\end{displaymath}
+with this construction. I.e. no such $\ell$ exists that satisfies our
+requirement.
+
+\paragraph{Problem 9}
+\begin{enumerate}[label=(\alph*)]
+\item 
+  Let $a^*\in Z^*$ and $b\in X$. Because $T$ and $S$ are bounded, their adjoints
+  $T^*$ and $S^*$ exist and are bounded. Note that for any $A: X\to Y$, $y^*\in
+  Y^*$, $x\in X$, $(y^*, Tx)_Y = y^*Tx = T^*y^*x = (T^*y^*,x)_X$ by definition.
+  Consider then $(z^*,STx)_Z$:
+  \begin{displaymath}
+    (z^*,STx)_Z = (S^*z^*,Tx)_Y = (T^*S^*z^*,x)_X,
+  \end{displaymath}
+  i.e. $T^*S^*z^* = z^*ST$ for all $z^* \in Z^*$, which is the domain of both
+  $(ST)^*$ and $T^*S^*$. This last equation is how we define $(ST)^*$, thus $(ST)^*
+  z^* = T^*S^*z^*\ \forall z^*$, hence $(ST)^* = T^*S^*$.
+\item Again we need to show that $(aS^* + bT^*)y^* = y^*(aS+bT)$ for all $y^*
+  $ in $Y^*$, i.e. $(aS^*+bT^*)y^*(x) = y^*(aS+bT)(x)$ for all $y^*\in Y^*$,
+  $x\in X$:
+  \begin{displaymath}
+    (aS^*+bT^*)y^*(x) = aS^*y^*(x)+bT^*y^*(x)
+  \end{displaymath}
+  then by the definition of $T^*$ and $S^*$:
+  \begin{displaymath}
+    = ay^*S(x)+by^*T(x) = y^*aS(x)+y^*bT(x) = y^*(aS + bT)(x)
+  \end{displaymath}
+  by linearity.
+\item We show $(T^{-1})^*: X^*\to Y^*$ is the inverse map of $T^*:Y^*\to X^*$:
+  \begin{displaymath}
+    (T^{-1})^*T^*y^*(a) = (T^{-1})^*y^*T(a) = y^*T^{-1}T(x) = y^*(a)
+  \end{displaymath}
+  likewise,
+  \begin{displaymath}
+    T^*(T^{-1})x^*(b) = T^*x^*T^{-1}(b) = x^*TT^{-1}(b) = x^*(b)
+  \end{displaymath}
+  for all $a\in Y,\ b\in X,\ x^*\in X^*\, y^*\in Y^*$, by repeated application
+  of the $A^*b^* = b^*A$ rule. Thus $(T^{-1})^* = (T^*)^{-1}$.
+
+\end{enumerate}
+\end{document}

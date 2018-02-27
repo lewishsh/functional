@@ -1,0 +1,56 @@
+\documentclass[12pt]{article}
+\renewcommand{\chi}{\mathcal{X}}
+\renewcommand{\null}{\mathcal{N}}
+\newcommand{\ran}{\mathcal{R}}
+\newcommand{\R}{\mathcal{R}}
+\renewcommand{\H}{\mathcal{H}}
+\newcommand{\K}{\mathcal{K}}
+\newcommand{\intr}{\int_\mathbb{R}}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[margin=1.25in]{geometry}
+\usepackage{enumitem}
+
+\begin{document}
+
+\begin{center}
+  Lewis Ho\\
+  Functional Analysis\\
+  Practice Pset 2
+\end{center}
+\paragraph{Problem 1}
+
+\paragraph{Problem 2}
+
+We show that the infimum of all $M$ such that $|Tf| \leq M\|f\|$ for $\|f\| =
+1$ is a norm on the space of all $T \in X^*$. Let $N(T) = \inf M$.
+
+Positiveness follows from the definition. Likewise, $N(T) = 0$ clearly only if $Tf
+= 0$ for all $f$. Thus $N$ is positive-definite. $N(\alpha T) = \alpha N(T)$
+from the linearity of $T$. Finally, if $N(T) = M,\ N(R) = S$, $N(T+R) \leq M+S$,
+otherwise it would imply there exists some $f$ such that $|Tf + Rf| \geq (M+N)
+\|f\|$, which would violate the definition of $M$ or $N$.
+
+\paragraph{Problem 3}
+
+\paragraph{Problem 4}
+
+Suppose $X$ is a Banach space. Let $a_i = \sum_{k=1}^ix_n$, and let $m > n$.
+\begin{displaymath}
+  \|a_n - a_m\| = \|\sum_{k=m+1}^nx_k\| \leq \sum_{k=m+1}^\infty\|x_k\|
+\end{displaymath}
+by the triangle inequality. Because $\sum_k\|x_k\|$ converges, the right hand
+side can be made arbitrarily small and thus $a_i$ is Cauchy and converges, as
+$X$ is a Banach space.
+
+The converse: let $a_n$ be a Cauchy sequence in $X$. Consider the sequence
+subsequence $a_{n_k}$, where $k$ is chosen such that $\|a_{n_i} - a_{n_j}\| \leq
+\frac{1}{n^2}$, and then define $b_k = a_{n_{k+1}} - a_{n_{k}}$. By construction,
+$\sum_k\|b_k\| < \infty$, so by assumption $\sum_{n=1}^\infty b_n \in X$.
+But $\sum_n^Nb_n = a_{n_k}$, so the limit of $a_n \in X$.
+
+
+
+\end{document}

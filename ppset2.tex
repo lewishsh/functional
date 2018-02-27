@@ -1,0 +1,84 @@
+\documentclass[12pt]{article}
+\renewcommand{\chi}{\mathcal{X}}
+\renewcommand{\null}{\mathcal{N}}
+\newcommand{\ran}{\mathcal{R}}
+\newcommand{\R}{\mathcal{R}}
+\renewcommand{\H}{\mathcal{H}}
+\newcommand{\K}{\mathcal{K}}
+\newcommand{\intr}{\int_\mathbb{R}}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[margin=1.25in]{geometry}
+\usepackage{enumitem}
+
+\begin{document}
+
+\begin{center}
+  Lewis Ho\\
+  Functional Analysis\\
+  Practice Pset 2
+\end{center}
+\paragraph{Problem 1}
+
+\paragraph{Problem 2}
+
+We show that the infimum of all $M$ such that $|Tf| \leq M\|f\|$ for $\|f\| =
+1$ is a norm on the space of all $T \in X^*$. Let $N(T) = \inf M$.
+
+Positiveness follows from the definition. Likewise, $N(T) = 0$ clearly only if $Tf
+= 0$ for all $f$. Thus $N$ is positive-definite. $N(\alpha T) = \alpha N(T)$
+from the linearity of $T$. Finally, if $N(T) = M,\ N(R) = S$, $N(T+R) \leq M+S$,
+otherwise it would imply there exists some $f$ such that $|Tf + Rf| \geq (M+N)
+\|f\|$, which would violate the definition of $M$ or $N$.
+
+\paragraph{Problem 3}
+
+Consider isosceles triangles of area 1 centered around 0.5.
+We can have arbitrarily high isosceles triangles by decreasing their width.
+We can define functions $f_n$ as 0 outside the triangle of height $n$ and taking
+value of their diagonals inside. Clearly $\|f_n\| = 1$, but $L(f_n) \to \infty$
+as $n \to \infty$.
+
+\paragraph{Problem 4}
+
+Suppose $X$ is a Banach space. Let $a_i = \sum_{k=1}^ix_n$, and let $m > n$.
+\begin{displaymath}
+  \|a_n - a_m\| = \|\sum_{k=m+1}^nx_k\| \leq \sum_{k=m+1}^\infty\|x_k\|
+\end{displaymath}
+by the triangle inequality. Because $\sum_k\|x_k\|$ converges, the right hand
+side can be made arbitrarily small and thus $a_i$ is Cauchy and converges, as
+$X$ is a Banach space.
+
+The converse: let $a_n$ be a Cauchy sequence in $X$. Consider the sequence
+subsequence $a_{n_k}$, where $k$ is chosen such that $\|a_{n_i} - a_{n_j}\| \leq
+\frac{1}{n^2}$, and then define $b_k = a_{n_{k+1}} - a_{n_{k}}$. By construction,
+$\sum_k\|b_k\| < \infty$, so by assumption $\sum_{n=1}^\infty b_n \in X$.
+But $\sum_n^Nb_n = a_{n_k}$, so the limit of $a_n \in X$.
+
+\paragraph{Problem 5}
+
+Because the domain of $f$ in $f(\tau(x))$ is the range of $\tau \subseteq [0,1]$,
+\[\sup_{x\in [0,1]}|f(\tau(x))| \leq \sup_{x\in [0,1]}|f(x)|,\] i.e. $\|Af\| \leq
+\|f\|$ for all $f$. There are also clearly continuous functions attaining their
+maximum in the range of $\tau$, so $\|Af\| = \|f\|$ for some $f$. Thus $\|A\|
+=1$.
+
+Any injective $\tau$ will yield a surjective operator, as for any $f$ there
+exists a continuous $\tau^{-1}\circ f$, where $\tau^{-1}$ maps the range of $\tau$
+to $[0,1]$, and $\tau\tau^{-1} = 1$. For injectivity, it is clear that $\tau$
+must be surjective, else functions that differ outside its range will be mapped
+to the same functions. If $Af(x) = Ag(x)$, $f(\tau(x)) = g(\tau(x))$. Thus
+because $\tau$ is surjective, $Af(x) = Ag(x)$ for all $x$ implies $f(x) = g(x)$
+for all $x \in [0,1]$.
+
+\paragraph{Problem 6}
+Comparing the infinity and $L^1$ norms of some $f$, it is clear that for some
+$\|f\|_\infty = a$, the largest $L^1$ norm it can attain is when all its
+components are $a$, and the smallest when all its other components are zero.
+Thus $c = 1$ and $C = n$, where $n$ is the dimension of $X$.
+
+
+
+\end{document}
