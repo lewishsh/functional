@@ -24,9 +24,10 @@ linearity:
 \end{displaymath}
 thus any $f$ can be defined as a sequence $\{a_n\}$ where $f(e_k) = a_n$. If
 $\{a_n\} \in \ell^1(\mathbb{N})$, for any $\{b_n\} \in c_0(\N)$, $|f_{a}
-(\sum_kb_k)| = |\sum_ka_kb_k| \leq \max(b_n)\sum|a_k| \leq \infty$. Note that we
-can take the max of $\{b_n\}$ because for any epsilon there are only finitely
-many elements in the sequence greater than it. Hence $\ell^1(\N) \subseteq
+(\sum_kb_k)| = |\sum_ka_kb_k| \leq \sup(|b_n|)\sum|a_k|  = M\|\{b_n\}\|$. 
+Note that we assume the norm defined on $c_0(\N)$ is the supremum norm, which
+is well defined because convergent sequences are bounded.
+ Hence $\ell^1(\N) \subseteq
 c_0(\N)^*$.
 
 Conversely, given some $\{a_n\}$ such that $\sum|a_n| = \infty$, we can find a
@@ -37,6 +38,7 @@ i \leq n_k$, and the sign of $b_i$ the same as the sign of $a_i$. Then:
   f_a(\{b_n\}) \geq \sum_{i=1}^{n_k}a_ib_i \geq \frac{1}{k}\sum_{i=1}^{n_k}|a_i|
   \geq k^2/k \to \infty.
 \end{displaymath}
+Note that $\|\{b_n\}\| \leq 1$.
 Thus $f$ is unbounded and $\ell^1(\N) \supseteq c_0(\N)^*$.
 
 \paragraph{Problem 2}
@@ -50,14 +52,14 @@ $f = \sum_ia_iv_i$,
   \|U(f)\| = \|U(\sum_ia_iv_i)\| = \|\sum_ia_iU(v_i)\|
   = \|\sum_ia_ie_i\| = \sup_i\{a_i\} = \|f\|
 \end{displaymath}
-$U$ is clearly linear, and thus
+$U$ is clearly linear and bijective, and thus
 $X$ is unitarily equivalent to the closure of the space spanned
 by $\{e_i\}$ with the same norm, say, $Y$.
 
 But $Y$ is not separable. Let $\{a_n\}$ be the sequence with $a_n = 1$ for
 all $n$. For any finite linear combination $\sum_i\alpha_ie_{k_i}$ of $\{e_i\}$,
 \begin{displaymath}
-  \|\{a_n\} - \sum_i^N\alpha_ie_{k_i}\| \geq 1
+  \|\{a_n\} - \sum_i^N\alpha_ie_{k_i}\|_\infty \geq 1
 \end{displaymath}
 as $a_n$ has infinite terms that are 1 compared to the finite ones in finite
 linear combinations of $\{e_i\}$. Hence there is always some $j$ where the
@@ -82,19 +84,18 @@ contradiction. Thus we've shown that no subset of $X$ can be dense.
 
 \paragraph{Problem 3}
 
-It is a subspace by the fact that if $a_n \to a$ and $b_n \to b$, $\lim a_n + b_n
-$ exists, and is in fact $a + b$. Thus $\{a_n\} + \{b_n\} \in c$. Let $\{b_n\}$
+It is a subspace by the fact that if $a_n \to a$ and $b_n \to b$, $\lim_{n\to
+  \infty} a_n + b_n $ exists, and is in fact $a + b$ (this all follows from the
+continuity of addition $\mathbb{R}^2 \to \mathbb{R}$). Thus $\{a_n\} + \{b_n\}
+\in c$. Closure: let $\{b_n\}$
 be the limit of a sequence of sequences $\{a_n\}_k$. For any $\varepsilon > 0$,
 there exists some $c_n = \{a_n\}_i$ such that $\sup|c_n - b_n| < \varepsilon/3$,
-and also some $N$, because $\{c_n\}$ is convergent, such that $|a_m - a_n| <
+and also some $N$, because $c_n$ is convergent, such that $|a_m - a_n| <
 \varepsilon/3$ for all $m,\ n > N$. Thus for any $m,\ n > N$,
 \begin{displaymath}
   |b_n - b_m| \leq |b_n-c_n| + |b_m-c_m| + |c_n-c_m| < \varepsilon,
 \end{displaymath}
 i.e. $\{b_n\}$ is Cauchy and thus in $c$ as well. $c$ is therefore closed.
-
-\paragraph{Problem 4}
-No idea what a Borel measure is.
 
 \paragraph{Problem 5}
 $\ell(f) = f(x_0) \leq \sup(f) = \|f\|$ on $[0,1]$. Additionally, there are
@@ -112,13 +113,28 @@ inequality is sometimes an equality and $\|\ell\| = 1$.
   any $f \in X$ and $\varepsilon > 0$, there exists some continuous function
   $g \in X$ such that $\|f - g\| < \varepsilon/2$, (given the density of the
   continuous functions in $L^2$). Then we can find another function $h \in E_\alpha
-  $such that $\|g-h\| < \varepsilon/2$, where $h = g$ in $[-1,1]\setminus [-\delta
+  $ such that $\|g-h\| < \varepsilon/2$, where $h = g$ in $[-1,1]\setminus [-\delta
   ,\delta]$, and $h$ decreases/increases linearly to $\alpha$ at $0$. We can find
   such a close $h$ because we can, by decreasing $\delta$, decrease the measure
   of the set on which $h$ differs from $g$ arbitrarily small, and this difference
   (squared) is bounded given the continuity of both functions and the compactness
-  of our domain.
-\item Express differences maybe?
+  of our domain. Thus $\|f-h\| < \varepsilon$, i.e. $E_\alpha$ is dense.
+\item No function can attain the value of both $\alpha$ and $\beta$ at 0. Further,
+  because all functions we are considering are continuous, functions in $E_\alpha$
+  and $E_\beta$ must differ in an area of nonzero measure, thus cannot belong to
+  the same equivalence class in $L^2$. Thus both sets are disjoint. To show they
+  cannot be separated, we first prove a lemma.
+
+  Lemma: if $A$ is a dense set, there exist no nonzero bounded linear functionals
+  such that $\ell(a) \leq C$. Proof: because $\ell$ is nonzero, there exists some
+  $a$ such that $\ell(a) \neq 0$. By linearity, we can scale $a$ to find an element
+  $b$ such that $\ell(b) > C + \varepsilon$. Because $A$ is dense, we can find some
+  $f\in A$ such that $\|f - b\| < \varepsilon/M$, where $M$ is the norm of $\ell$.
+  This means $\|\ell(f) - \ell(b)\| < \varepsilon$, and thus $\ell(f) > C$.
+
+  From the lemma it follows that because $E_\alpha$ is dense, $\{\ell(E_\alpha)\}$
+  has no supremum, and thus no such separation is possible. Geometric Hahn Banach
+  is not possible because the sets are not compact.
   
 \end{enumerate}
 
@@ -130,7 +146,7 @@ Convexity: the sum of two polynomials with negative leading coefficients has
 a negative leading coefficient, this being either the sum of both or just one
 of them; and the sum of two polynomials with non-negative coefficients has
 non-negative coefficients as well. Finally, multiplying polynomials with
-$0\leq \lambda \leq 1$ doesn't change the sign of its coefficients, thus both
+$0 < \lambda \leq 1$ doesn't change the sign of its coefficients, thus both
 $A$ and $B$ are convex.
 
 Suppose there does exist some nonzero $\ell$ such that $\ell(a) \leq \ell(b)$,
@@ -154,7 +170,8 @@ linear functional can exist.
 \paragraph{Problem 8}
 Let $K_1$ be the half space with $y \leq 0$, and let $K_2 = \{(x,y) \in \R^2\
 |\ x \geq 1,\ y \geq 1/x\}$. Both sets are convex: the half space is convex,
-and $\frac{1}{x}$ is a convex function, so its upper contour sets are convex.
+and $\frac{1}{x}$ is a convex function, and truncating it like so
+doesn't hurt this convexity.
 Because the boundary of $K_1$ is the $x$ axis,
 the only hyperplanes (lines) not intersecting $K_1$ must be parallel to the $x$
 axis and $\geq 0$, i.e. $\ell(x,y) = ay$, where $a \geq 0$. However, the infimum
@@ -195,7 +212,7 @@ requirement.
   \end{displaymath}
   likewise,
   \begin{displaymath}
-    T^*(T^{-1})x^*(b) = T^*x^*T^{-1}(b) = x^*TT^{-1}(b) = x^*(b)
+    T^*(T^{-1})^*x^*(b) = T^*x^*T^{-1}(b) = x^*TT^{-1}(b) = x^*(b)
   \end{displaymath}
   for all $a\in Y,\ b\in X,\ x^*\in X^*\, y^*\in Y^*$, by repeated application
   of the $A^*b^* = b^*A$ rule. Thus $(T^{-1})^* = (T^*)^{-1}$.
