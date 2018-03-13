@@ -1,0 +1,81 @@
+\documentclass[12pt]{article}
+\renewcommand{\chi}{\mathcal{X}}
+\renewcommand{\null}{\mathcal{N}}
+\newcommand{\ran}{\mathcal{R}}
+\newcommand{\R}{\mathcal{R}}
+\renewcommand{\H}{\mathcal{H}}
+\newcommand{\K}{\mathcal{K}}
+\newcommand{\intr}{\int_\mathbb{R}}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[margin=1.25in]{geometry}
+\usepackage{enumitem}
+
+\begin{document}
+\begin{center}
+  Lewis Ho\\
+  Functional Analysis\\
+  Practice Pset 3
+\end{center}
+
+\paragraph{Problem 1}
+$x_0$ is an extreme point of $F$, because there are no other points in $F$ and
+so no points of which $x_0$ could be a convex combination of. Then recall
+the theorem that $\mathcal{E}(F) = F \cap \mathcal{E}{A}$ if $F$ is an extreme
+set of $A$, closed, convex and compact. Thus $x_0 \in \mathcal{E}(F) \subseteq
+\mathcal{E}(A)$.
+
+\paragraph{Problem 2}
+The open mapping theorem implies $T(B_1(0)$ contains a ball of radius
+$\varepsilon$. Thus $T^{-1}(x) \in B_1(0)$ for $x \in B_\varepsilon(0)$, and
+$\|T\| \leq 1/\varepsilon$.
+
+\paragraph{Problem 3}
+Suppose $T$ is an open map. $B_1(0)$ being an open set, $T(B_1(0)$ must be
+open as well. $T(0) = 0 \in T(B_1(0)$, thus there must be some $B_\varepsilon(0)
+\subseteq T(B_1(0))$. Conversely, let $A$ be an open set. For any $x$ in $A$,
+there is some $B_\varepsilon(x)\subseteq A$. If $T(B_1(0))$ contains an open ball
+of radius $\delta$,
+\begin{displaymath}
+  T(B_\varepsilon(x)) = x + \varepsilon T(B_1(0))
+\end{displaymath}
+contains a ball of radius $\epsilon\delta$, which is a subset of $T(B_\varepsilon
+(x))\subseteq T(A)$, and thus $T$ is an open map.
+
+\paragraph{Problem 4}
+We can see that $F$ is nonempty because if we construct a sequence $x_n$ where
+$\ell(x_n) - \sup\ell(y) \leq 1/n$, by compactness we have a convergent
+subsequence whose limit, $x$, must satisfy $\ell(x) = \sup\ell(y)$. And because
+$B$ is closed, $x\in B$ and $F$, so $F$ is nonempty.
+
+Closedness follows from the continuity of $\ell$ and the closedness of $B$---
+specifically, if $a_n\in F$, then their limit $a$ must satisfy $\ell(a) =
+\sup\ell(x)$ by continuity, and must be in $B$. Convexity follows from the
+linearity of $\ell$.
+
+Extremity: suppose for some $x \in F$ there exists $a,\ b$ in $A$ such that
+$x$ is a convex combination of $a$ and $b$. Then $a$ and $b$ must be in $F$
+because if, say, $a$ wasn't, then $\ell(b)$ must be greater than $\ell(x)$,
+and that's not possible as $x$ is the supremum of $\ell$ over $B$, and $a$ and
+$b$ must be in $B$ because $B$ is an extreme subset.
+
+\paragraph{Problem 5}
+We show that $f$ in the ball can always be written as a convex combination of
+two other functions in the ball. If $f = 0$, then any $g$ and $-g$ in the ball
+will suffice. If $f \neq 0$, then $f$'s support has nonzero measure. We can
+split that support in two and have $g = f$ on one part of that and zero elsewhere
+and $h$ defined likewise for the other half. Then $g + h = f$, and clearly
+both must have norm less than one.
+
+\paragraph{Problem 6}
+Our distance function satisfies non-negativity, identity of indiscernibles,
+symmetry, and subadditivity, so it defines a metric space.
+
+Consider the set defined by $a_i \leq 1/i$. Compactness
+follows from the fact that this is the range of the closure of finite-rank
+operators. On the other hand, $\sum$
+
+
+\end{document}

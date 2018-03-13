@@ -1,0 +1,115 @@
+\documentclass[12pt]{article}
+\newcommand{\R}{\mathbb{R}}
+\renewcommand{\H}{\mathcal{H}}
+\newcommand{\N}{\mathcal{N}}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[margin=1.25in]{geometry}
+\usepackage{enumitem}
+\begin{document}
+\begin{center}
+  Lewis Ho\\
+  Functional Analysis\\
+  Problem Set 4
+\end{center}
+
+\paragraph{Problem 1}
+
+$\overline{A(B_1(0))}$ must contain a ball, else the range of $A$ will be
+$\bigcap_{n=1}^\infty A(B_n(0)) = \bigcap_{n=1}^\infty nA(B_1(0))$ which will
+then be meagre. Because $\overline{A(B_1(0))}$ is symmetric and convex, it will
+in particular contain a ball $B_{\varepsilon_0/2}(0)$, as if the original ball is
+centered around some $y_0$, then $(-y_0 + y_0 + B_{\varepsilon_0}(0))/2$ will be
+a set of convex combinations of points we know to be in the closure.
+
+Then we show $\overline{A(B_1(0))}\subset A(B_2(0))$, following the proof of the
+open mapping thoerem. Suppose $y \in \overline{A(B_1(0))}$, i.e. $\exists x_1\in
+B_1(0)$ such that $\|y-Ax_1\| < \varepsilon/4$, i.e. $y-Ax_1 \in B_{\varepsilon_0
+  /4}\in\overline{A(B_{1/2}(0)}$. Because it's contained in this ball, there exists
+some $x_2 \in B_{1/2}(0)$ such that $\|y-Ax_1-Ax_2\|<\varepsilon_0/8$, i.e.
+$y - Ax_1 - Ax_2 \in B_ {\varepsilon_0/8}(0) \subset \overline{A(B_{1/4})}$.
+Generally, there exists $x_n \in B_{1/2^{n-1}}(0)$ such that $\|y-\sum_{i=1}^nx_i\|
+< \varepsilon_0/2^{n+1}$.
+
+We know that in Banach spaces if $\sum\|x_n\|<\infty$ then $\sum x_n$ converges,
+and $\sum\|x_n\|$ in this case $ \leq \sum_{n=1}^\infty \frac{1}{2^{n-1}} \leq 2$.
+Thus the limit $x$ of this sum exists, and by the triangle inequality, is in
+$B_2(0)$, and finally satisfies $Ax = y$. Hence $y \in A(B_2(0)$. From this we
+conclude (by scaling) that $A(B_1(0))$ contains a ball of $\varepsilon_0/4$ radius,
+and thus by multiplying $B_1(0)$ by arbitrarily large numbers, can conclude that
+$A$ is surjective and thus has a closed range.
+
+\paragraph{Problem 2}
+
+The statement is false. We can construct arbitrarily tall isosceles triangles of
+$\varepsilon$ area. Center those triangles at 0.5, and define functions $f_
+h$ to be the functions that are 0 outside the base of the triangle of height $h$,
+and take the value of the diagonals up and down inside. $\|f_h\|$ is
+unbounded, but there is always a function $F_h$ whose supremum (and thus norm) is
+$\varepsilon$ and has derivative $f_h$, namely the antiderivative of $f_h$.
+
+\paragraph{Problem 3}
+
+If there exists some $c$ such that $\|Ax\|\geq c\|x\|$ for all $x$, then $\N(A)$
+must empty, otherwise arbitrarily large vectors in the null space can have images
+with norm zero, a contradiction. Closedness: let $Af_n$ be a Cauchy sequence in
+the range. For any $\|Af_n-Af_m\| < \varepsilon$, by the assumption,
+\begin{displaymath}
+  \|Af_n-Af_m\| = \|A(f_n-f_m)\| \geq c\|f_m-f_n\|,
+\end{displaymath}
+in other words, $f_n$ must also be Cauchy, converging to some $f$ in the domain.
+Then by continuity, $Af = A\lim_{n\to\infty}f_n = \lim_{n\to\infty}Af_n$, i.e. the
+range is closed.
+
+Conversely, if both $\N(A) = \{0\}$ and the range is closed, then if there were
+to not exist a $c$ such that $\|Ax\|\geq c\|x\|$, we could construct a
+sequence $Af_n\to 0$, where $\|f_n\| = 1$. Because the range is closed, there is
+some $f$ with norm 1 such that $Af = 0$, violating our $\N(A) = \{0\}$
+assumption.
+
+\paragraph{Problem 4}
+By a modification of H\"older's inequality, we get: $(x_n,y) \leq \|x_n\|_p
+\|y\|_q$.
+
+Suppose our assumptions hold $\sup_n\|x_n\|_p<\infty$ and $x_n^j\to 0$. I will
+show that we can make $(x_n,y)$ arbitrarily small. Firstly, note that we can
+bound $(x_n,y)$ by decomposing it and applying ``H\"older's'' as follows:
+\begin{displaymath}
+  (x_n,y) = \sum_{|y^j|>\delta}x_n^jy^j + \sum_{|y^j|\leq \delta}x_n^jy^j
+  \leq \|y\|_q\sum_{|y^j|>\delta}x_n^j + \delta\sup_n\|x_n\|_p
+\end{displaymath}
+Note that we can always find an $N$ such that for all $n > N$ both parts are
+arbitrarily small. For any $\varepsilon$, first choose $\delta = \varepsilon/
+2\sup_n\|x_n\|$, for example, making the latter part sum up to $\varepsilon/2$.
+Then note that because $y$ has finite $q$ norm, it must have finite elements
+(say $k$ of them) with absolute value greater than $\delta$, thus there exists
+some $N$ for which when $n > N$, all $x_n^j$ corresponding to these $y^j$ have
+absolute value less than $\varepsilon/2k\|y\|_q$, thus making this first part
+sum up to $\varepsilon/2$ as well.
+
+Conversely, suppose firstly that $\sup_n\|x_n\|_p$ is unbounded. Then we can find
+pairs $x_{n_k}, y_k$ satisfying: 1) $(x_{n_k},y_k) \geq e^k$, and 2) $(x_{n_k},y_j)
+< \varepsilon$ for $j < k$, and 3) $(x_{n_j},y_k) \leq \varepsilon$ for $j<k$.
+(Apologies for the clumsy construction.) To do this we first look only at $x_n$
+satisfying 2). These must exist because otherwise some $y_k$ already satisfies
+$(x_n,y_k)$ not going to 0. Then we can pick one satisfying 2) because norms of 
+$\|x_n\|$ are unbounded, and finally we can pick to satisfy 3) because
+
+If $x_n^j \to 0$ is violated, the sequence with $j$th element = 1 has image not 
+converging to 0.
+
+\paragraph{Problem 5}
+
+To show $(x_n,y)\to 0$, we decompose $(x_n,y)$ again as follows:
+\begin{displaymath}
+  (x_n,y) = \sum_{|y^j|>\delta}x_n^jy^j + \sum_{|y^j|\leq \delta}x_n^jy^j
+  \leq \|y\|_\infty\sum_{|y^j|>\delta}x_n^j + \delta \sup_n\|x_n\|_1
+\end{displaymath}
+
+
+
+
+
+\end{document}

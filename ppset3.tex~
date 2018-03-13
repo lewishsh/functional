@@ -1,0 +1,27 @@
+\documentclass[12pt]{article}
+\renewcommand{\chi}{\mathcal{X}}
+\renewcommand{\null}{\mathcal{N}}
+\newcommand{\ran}{\mathcal{R}}
+\newcommand{\R}{\mathcal{R}}
+\renewcommand{\H}{\mathcal{H}}
+\newcommand{\K}{\mathcal{K}}
+\newcommand{\intr}{\int_\mathbb{R}}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[margin=1.25in]{geometry}
+\usepackage{enumitem}
+
+\begin{document}
+\begin{center}
+  Lewis Ho\\
+  Functional Analysis\\
+  Practice Pset 3
+\end{center}
+
+\paragraph{Problem 1}
+$x_0$ is an extreme point of $F$, because there are no other points in $F$ and
+so no points of which $x_0$ could be a convex combination of. Then recall
+the theorem that $\Varepsilon$
+\end{document}

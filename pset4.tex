@@ -1,0 +1,193 @@
+\documentclass[12pt]{article}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\ran}{\text{ran}}
+\renewcommand{\H}{\mathcal{H}}
+\newcommand{\N}{\mathcal{N}}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[margin=1.25in]{geometry}
+\usepackage{enumitem}
+\begin{document}
+\begin{center}
+  Lewis Ho\\
+  Functional Analysis\\
+  Problem Set 4
+\end{center}
+
+\paragraph{Problem 1}
+
+$\overline{A(B_1(0))}$ must contain a ball, else the range of $A$ will be
+$\bigcap_{n=1}^\infty A(B_n(0)) = \bigcap_{n=1}^\infty nA(B_1(0))$ which will
+then be meagre. Because $\overline{A(B_1(0))}$ is symmetric and convex, it will
+in particular contain a ball $B_{\varepsilon_0/2}(0)$, as if the original ball is
+centered around some $y_0$, then $(-y_0 + y_0 + B_{\varepsilon_0}(0))/2$ will be
+a set of convex combinations of points we know to be in the closure.
+
+Then we show $\overline{A(B_1(0))}\subset A(B_2(0))$, following the proof of the
+open mapping thoerem. Suppose $y \in \overline{A(B_1(0))}$, i.e. $\exists x_1\in
+B_1(0)$ such that $\|y-Ax_1\| < \varepsilon/4$, i.e. $y-Ax_1 \in B_{\varepsilon_0
+  /4}\in\overline{A(B_{1/2}(0)}$. Because it's contained in this ball, there exists
+some $x_2 \in B_{1/2}(0)$ such that $\|y-Ax_1-Ax_2\|<\varepsilon_0/8$, i.e.
+$y - Ax_1 - Ax_2 \in B_ {\varepsilon_0/8}(0) \subset \overline{A(B_{1/4})}$.
+Generally, there exists $x_n \in B_{1/2^{n-1}}(0)$ such that $\|y-\sum_{i=1}^nx_i\|
+< \varepsilon_0/2^{n+1}$.
+
+We know that in Banach spaces if $\sum\|x_n\|<\infty$ then $\sum x_n$ converges,
+and $\sum\|x_n\|$ in this case $ \leq \sum_{n=1}^\infty \frac{1}{2^{n-1}} \leq 2$.
+Thus the limit $x$ of this sum exists, and by the triangle inequality, is in
+$B_2(0)$, and finally satisfies $Ax = y$. Hence $y \in A(B_2(0)$. From this we
+conclude (by scaling) that $A(B_1(0))$ contains a ball of $\varepsilon_0/4$ radius,
+and thus by multiplying $B_1(0)$ by arbitrarily large numbers, can conclude that
+$A$ is surjective and thus has a closed range.
+
+\paragraph{Problem 2}
+
+The statement is false. We can construct arbitrarily tall isosceles triangles of
+$\varepsilon$ area. Center those triangles at 0.5, and define functions $f_
+h$ to be the functions that are 0 outside the base of the triangle of height $h$,
+and take the value of the diagonals up and down inside. $\|f_h\|$ is
+unbounded, but there is always a function $F_h$ whose supremum (and thus norm) is
+$\varepsilon$ and has derivative $f_h$, namely the antiderivative of $f_h$.
+
+\paragraph{Problem 3}
+
+If there exists some $c$ such that $\|Ax\|\geq c\|x\|$ for all $x$, then $\N(A)$
+must empty, otherwise arbitrarily large vectors in the null space can have images
+with norm zero, a contradiction. Closedness: let $Af_n$ be a Cauchy sequence in
+the range. For any $\|Af_n-Af_m\| < \varepsilon$, by the assumption,
+\begin{displaymath}
+  \|Af_n-Af_m\| = \|A(f_n-f_m)\| \geq c\|f_m-f_n\|,
+\end{displaymath}
+in other words, $f_n$ must also be Cauchy, converging to some $f$ in the domain.
+Then by continuity, $Af = A\lim_{n\to\infty}f_n = \lim_{n\to\infty}Af_n$, i.e. the
+range is closed.
+
+Conversely, if both $\N(A) = \{0\}$ and the range is closed, then if there were
+to not exist a $c$ such that $\|Ax\|\geq c\|x\|$, we could construct a
+sequence $Af_n\to 0$, where $\|f_n\| = 1$. Because the range is closed, there is
+some $f$ with norm 1 such that $Af = 0$, violating our $\N(A) = \{0\}$
+assumption.
+
+\paragraph{Problem 4}
+By a modification of H\"older's inequality, we get: $(x_n,y) \leq \|x_n\|_p
+\|y\|_q$.
+
+Suppose our assumptions hold $\sup_n\|x_n\|_p<\infty$ and $x_n^j\to 0$. I will
+show that we can make $(x_n,y)$ arbitrarily small. Firstly, note that we can
+bound $(x_n,y)$ by decomposing it and applying ``H\"older's'' as follows:
+\begin{displaymath}
+  |(x_n,y)| =
+  |\sum_{|y^j|>\delta}x_n^jy^j + \sum_{|y^j|\leq \delta}x_n^jy^j|
+  \leq \|y\|_q\left(\sum_{|y^j|>\delta}|x_n^j|^p\right)^{\frac{1}{p}} +
+  \left(\sum_{|y^j<\delta|}|y^j|^q\right)^{\frac{1}{q}}\sup_k\|x_k\|_p
+\end{displaymath}
+Note that we can always find an $N$ such that for all $n > N$ both parts are
+arbitrarily small. First we can fix $\delta$ to make the latter term small,
+e.g. because $\|y\|_q$ is finite, we can look at the first $N$ terms such that
+their $q$ sum is arbitarily close to $\|y\|^q_q$, and then set $\delta$ to be
+their infimum. With this fixed $\delta$, there are now finite elements in
+the sum of $x^j_n$s in the first term, and thus we can pick some $N$ such that
+for $n>N$ all $x^j_n$ are arbitrarily small, and thus their finite $p$ sum is
+also arbitrarily small.
+
+For the converse, note that $x_n$ define bounded linear operators from $\ell^q$ to
+$\mathbb{R}$. If $(x_n,y)\to 0$ for all $y$, then the set $E = \{y\in\ell^q\ |
+\ \sup_n\|(x_n,y)\| < \infty\} = \ell^q$, and by the uniform boundedness principle
+$\sup_n\|x_n\|_{p}$ must be bounded. Finally,
+if $x_n^j \to 0$ is violated, the sequence with $j$th element = 1 has image not 
+converging to 0.
+
+\paragraph{Problem 5}
+
+In the previous problem set we showed that ${c_0}^* = \ell^1$. NEED TO SHOW
+THE NORM OF ELL IS THE NORM OF THE SPACE.
+
+To show $(x_n,y)\to 0$, we decompose $(x_n,y)$ again as follows:
+\begin{displaymath}
+  |(x_n,y)| =
+  |\sum_{|y^j|>\delta}x_n^jy^j + \sum_{|y^j|\leq \delta}x_n^jy^j|
+  \leq \|y\|_\infty\sum_{|y^j|>\delta}|x_n^j| + \delta \sup_n\|x_n\|_1
+\end{displaymath}
+As previously, we can choose $\delta$ such that the second term becomes
+arbitrarily small, and then given this delta, choose $n$ such that the first
+term becomes arbitrarily small.
+
+To show the converse, note that $x_n$ define linear operators from $c_0 \to
+\mathbb{R}$. If $(x_n,y)\to 0$ for all $y$, then the set $E$ for $\{x_n\}$ is
+all of $c_0$, and thus $sup_n\|x_n\|$ is finite. Additionally if we have some
+$x_n^j$ not converging to $0$, then $e_j$ has image not converging to zero.
+
+\paragraph{Problem 6}
+
+Let $h = \sum_ia^ie_i$, and $h_n = \sum_ih_n^ie_i$. If our assumptions are
+satisfied, we can write $|(h_n,h)|$ as
+\begin{displaymath}
+  |\sum_{|a^i|>\delta}a^ih_n^i + \sum_{|a^i|>\delta}a^ih_n^i| \leq
+  \|h\|\left(\sum_{|a^i|>\delta}|h_n^i|^2\right)^{\frac{1}{2}} +
+  \left(\sum_{|a^i|<\delta}|a^i|^2\right)^{\frac{1}{2}}\sup_k\|h_k\|
+\end{displaymath}
+using the Cauchy-Schwarz inequality to bound it. Then as before, the latter
+term is made arbitrarily small with our choice of $\delta$, and the former
+with a sufficiently large choice of $N$.
+
+For the converse, we use the uniform boundedness principle, as all $h_n$ define
+operators $\mathcal{H}\to \mathbb{R}$, and $E$ is all of space for $\{h_n\}$.
+Likewise if some $b^j_n$ doesn't go to zero, $(e_j,h)$ won't converge to zero
+either.
+
+\paragraph{Problem 7}
+
+Proof by contradiction: suppose this statement is false, i.e. there exists
+some $\varepsilon_0$ such that for all $N$ there exists some $n>N$ such that
+$\sup_f\|A_nf-Af\| > \varepsilon_0$. From this we can construct a sequence
+$\{f_n\}$ where $\|A_nf_n - Af_n\|> \varepsilon_0$, and then find the limit
+$f$ of a convergent subsequence $\{f_{n_k}\}$ using compactness.
+
+Consider $\|A_nf-Af\|$. Using our subsequence $\{f_{n_k}\}$ and their
+accompanying $A_{n_k}$, we can write
+\begin{align*}
+  \|A_{n_k}f - Af\|
+  &= \|(A_{n_k}-A)(f_{n_k} + f - f_{n_k})\|\\
+  &= \|A_{n_k}f_{n_k}-Af_{n_k} + (A_{n_k}-A)(f-f_{n_k})\|\\
+  &\geq \varepsilon_0 - (\sup_n\|A_{n}\|+\|A\|)\|f-f_{n_k}\|
+\end{align*}
+and that we can choose large enough $n_k$ such $f$ and $f_{n_k}$ are very close
+and this difference is bounded from
+below by, say, $\varepsilon_0/2$, meaning that it doesn't converge. Note that
+$\sup_n\|A_n\|$ and $\|A\|$ exist by the uniform boundedness principle.
+
+\paragraph{Problem 8}
+
+Let $M = \sup_{A \in \mathcal{A}}\|A\|$, which exists because the image set of the
+unit ball is compact (and hence bounded), and thus by the uniform boundedness
+principle the supremum of their norms is finite. From the previous problem and
+both the pointwise convergence of $L_n$ and the collective compactness of
+$\mathcal{A}$, we know that:
+\begin{align*}
+  & \sup_{g\in \overline{\mathcal{A}(B_1(0))}}\|L_ng-Lg\| \to 0\\
+  \Rightarrow &\sup_{\|f\| \leq 1,\ A\in \mathcal{A}}\|(L_n-L)Af\| \to 0
+\end{align*}
+the first implying the second because:
+\begin{displaymath}
+  \overline{\mathcal{A}(B_1(0))} \subseteq \mathcal{A}(B_1(0)) =
+  \{Af\ |\ A\in \mathcal{A},\ f\in B_1(0)\}.
+\end{displaymath}
+Now we invoke the definition of the norm of an operator $T$ as $\sup\|Tf\|$
+for $\|f\|\leq 1$ to infer
+\begin{displaymath}
+  \sup_{\|f\|\leq 1,\ A\in \mathcal{A}}\|(L_n-L)Af\| = \sup_{A\in\mathcal{A}}
+  (\sup_{\|f\|\leq 1}\|(L_n-L)Af\|) = \sup_{A\in\mathcal{A}}\|(L_n-L)A\|\to 0.
+\end{displaymath}
+
+\paragraph{Problem 9}
+
+We first show that for sufficiently large $n$, $I-A_n$ is injective. Because
+a subset of a compact set is itself precompact, $A_n$ are all compact
+operators. Because of this, 
+
+
+
+
+\end{document}
