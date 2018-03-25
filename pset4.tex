@@ -183,11 +183,49 @@ for $\|f\|\leq 1$ to infer
 
 \paragraph{Problem 9}
 
-We first show that for sufficiently large $n$, $I-A_n$ is injective. Because
-a subset of a compact set is itself precompact, $A_n$ are all compact
-operators. Because of this, 
+We first show that $I-A_n$ is injective (and hence bijective and invertible,
+by Fredholm theory) for sufficiently large $n$. Proof: suppose not, i.e. for
+each $n$ there exists some $f_n$ of norm 1 in the kernel of $I-A_n$. Let $M =
+\{f_n\}$. Further, $f_n$ is in the kernel of $I-A_n$ if $If_n - Af_n = 0$,
+i.e. $Af_n = f_n$. This means $\mathcal{A}(M) \supseteq M$. Suppose then that
+$\mathcal{A}(M)$ is precompact, so some $f_{n_k} \to f$. Then
+\begin{displaymath}
+  \|(I-A_n)f\| = \|(I-A_n)(f-f_n)+(I-A_n)f_n\|
+  \lesssim \|f-f_n\|,
+\end{displaymath}
+as $(I-A_n)$ converge pointwise to $(I-A)$ and are thus uniformly bounded. This
+however means that $(I-A_{n_k})f \to 0$, but $(I-A)f \neq 0$ by injectivity ($\|f\|
+= 1$), thus violating our assumption of pointwise convergence. Thus for
+sufficiently large $n$, $I-A_n$ is injective and thus invertible by the Fredholm
+alternative (each $A_n$ must be compact if they are collectively compact as
+subsets of precompact sets are precompact).
 
+Boundedness of the inverse: for invertible $I-A_n$, the nullspace is trivial and
+the range is closed. Thus $\|(I-A_n)f\| \geq c_n\|f\|$. Then
+\begin{align*}
+  \|(I-A_n)(I-A_n)^{-1}f\| \geq c_n\|(I-A_n)^{-1}f\| \Rightarrow
+  \frac{1}{c_n}\|f\| \geq \|(I-A_n)^{-1}f\|
+\end{align*}
 
-
+Thus we need to bound $\|(I-A_n)f\|$ from below:
+\begin{align}
+  \|(I-A_n)f\|
+  &= \frac{\|(I-A_n)f\|(1+\|(I-A)^{-1}A_n\|)}{1+\|(I-A_n)^{-1}A_n\|}\\
+  &\geq \frac{\|(I-A_n)f + (I-A)^{-1}A_n(I-A_n)f\|}{1+\|(I-A_n)^{-1}A_n\|}\\
+  % Triangle inequality
+  &= \frac{\|f-(I-A)^{-1}(I-A)A_nf+(I-A)^{-1}(I-A_n)A_nf\|}{1+\|(I-A_n)^{-1}
+    A_n\|}\\ % I-A_n and A_n commute
+  &= \frac{\|f - (I-A)^{-1}(A-A_n)A_nf\|}{1+\|(I-A_n)^{-1}A_n\|}\\
+  &= \frac{\|f\|-\|(I-A)^{-1}(A-A_n)A_nf\|}{1+\|(I-A_n)^{-1}A_n\|}\\
+  &= \frac{\|f\|-\|(I-A)^{-1}(A-A_n)A_n\|\|f\|}{1+\|(I-A_n)^{-1}A_n\|}\\
+  &= \frac{1-\|(I-A)^{-1}(A-A_n)A_n\|}{1+\|(I-A_n)^{-1}A_n\|}\cdot \|f\| =
+    c_n\|f\|
+    % Because the second thing is smaller than the first, and is bounded
+    % from above by the product of the norms
+\end{align}
+Note: (2) follows from the triangle inequality, (3) because $(I-A_n)$ and $A_n$
+commute, (5) by the reverse triangle inequality because the first term is larger
+than the second by assumption. $1/c_n$ then gives us the specified bound on
+$\|(I-A_n)^{-1}\|$.
 
 \end{document}
