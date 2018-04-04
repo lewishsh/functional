@@ -11,8 +11,7 @@
 \begin{center}
   Lewis Ho\\
   Functional Analysis\\
-  Problem Set 5\\
-  Collaborator: Anton Xue
+  Problem Set 5
 \end{center}
 
 \paragraph{Problem 1}
@@ -79,7 +78,7 @@ $|p(x_0)| + \varepsilon/2\alpha$. Given some $(\beta, x)$ in our neighborhood,
   p_j(\alpha x_0 - \beta x)
   & = p_j(\alpha(x_0-x) + (\alpha - \beta)x)\\
   & \leq |\alpha|p_j(x-x_0) + |\alpha -\beta|p_j(x)\\
-  & \leq \varepsilon_j.
+  & < \varepsilon_j.
 \end{align*}
 Thus scalar multiplication maps our neighborhood into $V_{\alpha x_0}\subset U$.
 
@@ -108,7 +107,7 @@ Let $\tau$ be a strict subset of $wk$, i.e there is some open set in $wk$ that
 is not in $\tau$. This implies there's some $x$ in the set with a
 neighborhood in $wk$ but not $\tau$, i.e.
 \begin{displaymath}
-  V_{x_0} = \bigcap_{i=0}^n\{x\in\X\ |\ |\ell_i(x-x_0)<\varepsilon_i\}\notin\tau 
+  V_{x_0} = \bigcap_{i=0}^n\{x\in\X\ |\ |\ell_i(x-x_0)|<\varepsilon_i\}\notin\tau 
 \end{displaymath}
 This in turn implies for one of the $\ell_i$, its $\varepsilon_i$ cylinder is
 not an open set of $\tau$, (otherwise $V_{x_0}$, a finite intersection of all
@@ -116,5 +115,52 @@ such cylinders, would too be open). The $\varepsilon_i$ cylinder can be
 rewritten as $\ell_i^{-1}((\ell(x_0)-\varepsilon_i, \ell(x_0)+\varepsilon_i))$,
 i.e. $\ell_i\in \X^*$ is not continuous in $\tau$ as our interval is an open
 set in our field.
+
+\paragraph{Problem 5}
+
+We've shown in class that $(\X^*,wk^*)^* = \X$. Let $\tau$ be a yet weaker
+topology; thus there is an open set and within it a neighborhood of some
+$\ell_0^*$ that is not in $\tau$, i.e.
+\begin{displaymath}
+  V_{\ell_0^*} = \bigcap_{i=0}^n\{\ell\in\X^*\ |\ |(\ell-\ell^*)(x_i)| <\varepsilon_i
+  \} \notin\tau.
+\end{displaymath}
+This means that some $\varepsilon_i$ cylinder of some $\ell_i$ isn't an open
+set in $\tau$. Note that:
+\begin{displaymath}
+  \{\ell\in\X^*\ |\ |(\ell-\ell^*)(x_i)|<\varepsilon_i\}
+  = x_i^{-1}((\ell^*(x_i)-\varepsilon_i,\ell^*(x_i)+\varepsilon_i))\notin\tau.
+\end{displaymath}
+Thus $x_i$ isn't continuous in $\tau$.
+
+\paragraph{Problem 6}
+
+With some algebra:
+\begin{align*}
+  \|h_n-h\|^2
+  &= \sum_i((h_n)_i-h_i)^2\\
+  &= \sum_i(h_n)_i^2 - 2\sum_i(h_n)_ih_i + \sum_ih_i^2\\
+  &= \sum_i(h_n)_i^2 - \sum_ih_i^2 + 2\sum_ih_i^2 - 2\sum_i(h_n)_ih_i\\
+  &= (\|h_n\|^2 - \|h\|^2) + 2((h,h) - (h_n,h)).
+\end{align*}
+The first converges to zero by the convergence \emph{of} norms, and the second by
+weak convergence.
+
+\paragraph{Problem 7}
+
+Let $\bar{S}$ denote the weak closure of $S$. Let $R = \{x:\|x\| \leq 1\}$.
+
+$\bar{S}\subset R$: to show that every element in the closure of $S$ must have
+norm less than one, suppose it isn't true: there is some $x_i \to x$ where
+$x_i$ are norm 1 but $\|x\| > 1$. By Hahn-Banach, however, there is some linear
+functional $\ell$ for which for all $y \in \overline{B_1(0)}$, $|\ell(y)-\ell(x)
+| > \varepsilon$. Note that $x_i$ in particular are members of $\overline{B_1(0)}
+$, thus they never enter the $\varepsilon$ neighborhood of $x$ induced by $\ell$,
+contradicting our assumption that $x_i\to x$ weakly.
+
+$R\subset \bar{S}$:
+
+% want to show: we can construct a sequence st for each neighborhood of x
+% x_i is eventually in it.
 
 \end{document}
