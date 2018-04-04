@@ -1,0 +1,120 @@
+\documentclass[12pt]{article}
+\newcommand{\R}{\mathbb{R}}
+\renewcommand{\H}{\mathcal{H}}
+\newcommand{\X}{\mathcal{X}}
+\usepackage{microtype}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[margin=1.25in]{geometry}
+\usepackage{enumitem}
+\begin{document}
+\begin{center}
+  Lewis Ho\\
+  Functional Analysis\\
+  Problem Set 5\\
+  Collaborator: Anton Xue
+\end{center}
+
+\paragraph{Problem 1}
+
+\begin{enumerate}[label=\alph*)]
+\item Consider $A = f^{-1}(U) \in \X^2$, where $f$ is the addition function.
+  Because $\X$ is a TVS, $A$ is open in the product topology. Further, because
+  0 is in $U$, 0 (or really, (0,0)) is in $A$, and thus some neighborhood
+  containing 0, say $X\times Y$, is in $A$, where $X$ and $Y$ are open sets
+  of $\X$. Thus $V = X\cap Y$ is open, is a member of $\mathcal{U}$,
+  $V\times V \subset X\times Y \subset A$, and $V+V \subset U$.
+\item Because of the joint continuity of scalar multiplication, there exists
+  in the preimage of $U$ under scalar multiplication a neighborhood of 0,
+  $[-c, c]\times W$, where $W$ is an open set. Let $V = W/c$, hence $\alpha V
+  \subset U$ for all $|\alpha| \leq 1$. Then define
+  \begin{displaymath}
+    \mathcal{V} = \bigcup_{|\alpha| \leq 1}\alpha V
+  \end{displaymath}
+  For any vector $v \in \mathcal{V}$ and $|\beta| \leq 1$, $\beta v \in
+  \mathcal{V}$, as $v \in \alpha V$ for some $\alpha$, and then $|\alpha\beta|
+  \leq 1$ so $\beta v \in \alpha\beta V \subset \mathcal{V}$. Our set
+  thus is open (union of open sets), contains 0, and is balanced.
+\end{enumerate}
+
+\paragraph{Problem 2}
+
+Continuity of addition: let $U$ be an open set. I show that for every $x_0 +
+y_0 \in U$, there is some open neighborhood around $(x_0,y_0)$ that maps into
+$U$.
+
+Because $U$ is open, it contains some neighborhood around $x_0+y_0$:
+\begin{displaymath}
+  V_{x_0+y_0} = \bigcap_{j=1}^n\{x\in \X\ |\ p_j(x-x_0-y_0) < \varepsilon_j\}.
+\end{displaymath}
+Consider the neighborhood around $(x_0,y_0)$, $V_{x_0}\times V_{y_0}$,
+where $V$ is defined as it is above for ${x_0+y_0}$, except with $\varepsilon_j
+/2$ instead of $\varepsilon$. For any $(x,y)$ in our neighborhood:
+\begin{displaymath}
+  p_j(x+y-x_0-y_0) \leq p_j(x-x_0)+p_j(y-y_0) < \varepsilon_j,
+\end{displaymath}
+meaning $V_{x_0}\times V_{y_0}$ maps into the neighborhood around $(x_0,y_0)$,
+and thus into $U$. Thus addition is continuous.
+
+Continuity of scalar multiplication. Again let $U$ be an open set; I show every
+$(\alpha, x_0)$ with $\alpha x_0\in U$ has a neighborhood also mapping into $U$.
+
+Let $V_{\alpha x_0}$ be an open neighborhood contained by $U$:
+\begin{displaymath}
+  V_{\alpha x_0} = \bigcap_{j=1}^n \{x\in\X\ |\ p_j(x-\alpha x_0) < \varepsilon_j\}.
+\end{displaymath}
+Then let us construct a neighborhood of $(\alpha, x_0)$. Define
+\begin{displaymath}
+  W_{x_0} = \bigcap_{j=1}^n\{x\ |\ p_j(x-x_0) < \varepsilon_j/|2\alpha|\},\ 
+  c = \inf_{x\in W_{x_0},\ j = 1,\ldots ,n} \frac{\varepsilon_j}{2|p_j(x)|},
+\end{displaymath}
+and finally our neighborhood $V_{(\alpha, x_0)}$:
+\begin{displaymath}
+  V_{(\alpha, x_0)} = (\alpha - c, \alpha + c)\times W_{x_0}.
+\end{displaymath}
+
+Note that $c$ is nonzero because $n$ is finite, $|p_j(x)|$ is bounded by
+$|p(x_0)| + \varepsilon/2\alpha$. Given some $(\beta, x)$ in our neighborhood,
+\begin{align*}
+  p_j(\alpha x_0 - \beta x)
+  & = p_j(\alpha(x_0-x) + (\alpha - \beta)x)\\
+  & \leq |\alpha|p_j(x-x_0) + |\alpha -\beta|p_j(x)\\
+  & \leq \varepsilon_j.
+\end{align*}
+Thus scalar multiplication maps our neighborhood into $V_{\alpha x_0}\subset U$.
+
+\paragraph{Problem 3}
+
+Let $U$ be an open subset of $\X$ and $x_0+y_0 \in U$. By the continuity of
+addition, there exists some neighborhood $V_{x_0}\times V_{y_0}$ such that
+$(x,y)\in V_{x_0}\times V_{y_0}$ satisfies $x + y \in U$. By the definition of
+neighborhoods in a product space, $V_{y_0}$ is a open neighborhood of $y_0$
+in $\X$. Thus $V_{y_0} + x_0 \in U$ implies our function is continuous.
+The continuity of the inverse is established by repeating the argument with
+$-x_0$ instead of $x_0$.
+
+Let $U$ be an open set in $\X$ and let $\alpha_0 x_0 \in U$. By continuity, there
+is some open neighborhood $V_{\alpha_0}\times V_{x_0}$ such that $(\alpha,x)$ in
+it satisfies $\alpha x \in U$. As above, $V_{x_0}$ is open in $\X$ and satisfies
+$\alpha_0V_{x_0} \in U$, thus establishing continuity. The continuity of its
+inverse follows with the same argument, replacing $1/\alpha$ for $\alpha$.
+
+\paragraph{Problem 4}
+
+We've shown in class that $x^*$ is continuous in the weak topology. It remains
+to be shown that weaker topologies are insufficient.
+
+Let $\tau$ be a strict subset of $wk$, i.e there is some open set in $wk$ that
+is not in $\tau$. This implies there's some $x$ in the set with a
+neighborhood in $wk$ but not $\tau$, i.e.
+\begin{displaymath}
+  V_{x_0} = \bigcap_{i=0}^n\{x\in\X\ |\ |\ell_i(x-x_0)<\varepsilon_i\}\notin\tau 
+\end{displaymath}
+This in turn implies for one of the $\ell_i$, its $\varepsilon_i$ cylinder is
+not an open set of $\tau$, (otherwise $V_{x_0}$, a finite intersection of all
+such cylinders, would too be open). The $\varepsilon_i$ cylinder can be
+rewritten as $\ell_i^{-1}((\ell(x_0)-\varepsilon_i, \ell(x_0)+\varepsilon_i))$,
+i.e. $\ell_i\in \X^*$ is not continuous in $\tau$ as our interval is an open
+set in our field.
+
+\end{document}

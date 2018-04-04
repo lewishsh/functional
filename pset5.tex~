@@ -1,0 +1,25 @@
+\documentclass[12pt]{article}
+\newcommand{\R}{\mathbb{R}}
+\renewcommand{\H}{\mathcal{H}}
+\usepackage{microtype}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[margin=1.25in]{geometry}
+\usepackage{enumitem}
+\begin{document}
+\begin{center}
+  Lewis Ho\\
+  Functional Analysis\\
+  Problem Set 5
+\end{center}
+
+\paragraph{Problem 1}
+
+\begin{enumerate}[label=\alph*)]
+\item Let $A$ $B$ be the preimage of $U$ under $g(x,y) = x + y$. Their
+  intersection is nonempty because
+
+  Then their intersection is open and their sum is a subset of $U$.
+\end{enumerate}
+
+\end{document}

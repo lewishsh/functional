@@ -18,7 +18,8 @@
 
 \paragraph{Problem 1}
 
-$\overline{A(B_1(0))}$ must contain a ball, else the range of $A$ will be
+$\overline{A(B_1(0))}$ must contain a ball of radius $\varepsilon_0$, else the
+range of $A$ will be
 $\bigcap_{n=1}^\infty A(B_n(0)) = \bigcap_{n=1}^\infty nA(B_1(0))$ which will
 then be meagre. Because $\overline{A(B_1(0))}$ is symmetric and convex, it will
 in particular contain a ball $B_{\varepsilon_0/2}(0)$, as if the original ball is
@@ -26,12 +27,12 @@ centered around some $y_0$, then $(-y_0 + y_0 + B_{\varepsilon_0}(0))/2$ will be
 a set of convex combinations of points we know to be in the closure.
 
 Then we show $\overline{A(B_1(0))}\subset A(B_2(0))$, following the proof of the
-open mapping thoerem. Suppose $y \in \overline{A(B_1(0))}$, i.e. $\exists x_1\in
-B_1(0)$ such that $\|y-Ax_1\| < \varepsilon/4$, i.e. $y-Ax_1 \in B_{\varepsilon_0
+open mapping thoerem. Suppose $y \in \overline{A(B_1(0))}$, then $\exists x_1\in
+B_1(0)$ such that $\|y-Ax_1\| < \varepsilon_0/4$, i.e. $y-Ax_1 \in B_{\varepsilon_0
   /4}\in\overline{A(B_{1/2}(0)}$. Because it's contained in this ball, there exists
 some $x_2 \in B_{1/2}(0)$ such that $\|y-Ax_1-Ax_2\|<\varepsilon_0/8$, i.e.
 $y - Ax_1 - Ax_2 \in B_ {\varepsilon_0/8}(0) \subset \overline{A(B_{1/4})}$.
-Generally, there exists $x_n \in B_{1/2^{n-1}}(0)$ such that $\|y-\sum_{i=1}^nx_i\|
+Generally, there exists $x_n \in B_{1/2^{n-1}}(0)$ such that $\|y-\sum_{i=1}^nAx_i\|
 < \varepsilon_0/2^{n+1}$.
 
 We know that in Banach spaces if $\sum\|x_n\|<\infty$ then $\sum x_n$ converges,
@@ -71,10 +72,22 @@ some $f$ with norm 1 such that $Af = 0$, violating our $\N(A) = \{0\}$
 assumption.
 
 \paragraph{Problem 4}
-By a modification of H\"older's inequality, we get: $(x_n,y) \leq \|x_n\|_p
-\|y\|_q$.
+Let us define $(x,y)$ to be $\sum_ix_iy_i$.
+Lemma: (almost H\"older's inequality) $|(x,y)| \leq \|x\|_p \|y\|_q$ if $x\in
+\ell^p$, $y\in\ell^q$ and $1/p + 1/q = 1$. Proof: if either $x$ or $y$ = 0,
+then then the lemma holds. If not, define:
+\begin{displaymath}
+  a_k = \frac{x_k}{\|x\|_p},\ b_k = \frac{y_k}{\|y\|_q}.
+\end{displaymath}
+By Young's inequality, $\sum_i|a_ib_i| \leq \sum_i(|a_k|^p/p + |b_k|^q/q)$, and
+$\sum_i|a_i| = \sum_i |x_i|^p/\|x\|^p = 1$, and likewise for $w$. Thus $\sum_i
+(|a_k|^p/p + |b_k|^q/q) = 1 \geq \sum_i|x_iy_i|$. Multiplying both sides by
+$\|x\|$ and $\|y\|$ we get:
+\begin{displaymath}
+  \|x\|_p\|y\|_q \geq \sum_i|x_iy_i| \geq |\sum_ix_iy_i| = |(x,y)|.
+\end{displaymath}
 
-Suppose our assumptions hold $\sup_n\|x_n\|_p<\infty$ and $x_n^j\to 0$. I will
+Suppose our assumptions hold: $\sup_n\|x_n\|_p<\infty$ and $x_n^j\to 0$. I will
 show that we can make $(x_n,y)$ arbitrarily small. Firstly, note that we can
 bound $(x_n,y)$ by decomposing it and applying ``H\"older's'' as follows:
 \begin{displaymath}
@@ -101,9 +114,7 @@ converging to 0.
 
 \paragraph{Problem 5}
 
-In the previous problem set we showed that ${c_0}^* = \ell^1$. NEED TO SHOW
-THE NORM OF ELL IS THE NORM OF THE SPACE.
-
+In the previous problem set we showed that ${c_0}^* = \ell^1$. 
 To show $(x_n,y)\to 0$, we decompose $(x_n,y)$ again as follows:
 \begin{displaymath}
   |(x_n,y)| =
@@ -227,5 +238,8 @@ Note: (2) follows from the triangle inequality, (3) because $(I-A_n)$ and $A_n$
 commute, (5) by the reverse triangle inequality because the first term is larger
 than the second by assumption. $1/c_n$ then gives us the specified bound on
 $\|(I-A_n)^{-1}\|$.
+
+Unfortunately even after a great deal of effort I couldn't bound
+$\|\phi_n-\phi\|$ as specified.
 
 \end{document}
