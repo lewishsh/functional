@@ -1,0 +1,54 @@
+\documentclass[12pt]{article}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[margin=1.25in]{geometry}
+\usepackage{enumitem}
+\newcommand{\N}{\mathbb{N}}
+
+\begin{document}
+\begin{center}
+  Lewis Ho\\
+  Functional Analysis\\
+  Practice Pset 4
+\end{center}
+
+\paragraph{Problem 1}
+
+This is an application of a theorem we proved in class. I proceed with the same
+proof. Let $B$ be the closure of the ball in $c_0(\mathbb{N}$ with respect to
+the weak* topology. Suppose the statement is false: then there exists some
+$x_0 \in \ell^\infty(\mathbb{N})\setminus B$. Because $B$ is convex and closed,
+by Hahn-Banach there exists some $\ell \in (\ell^\infty,wk^*)^*$ such that
+$|\ell(x)| \leq \alpha < \alpha + \varepsilon \leq |\ell(x_0)|$, for all $x$
+in $B$. Note further that generally, $(X^{**},wk^*)^* = X^*$ (WHY?). Let $\ell$
+be norm 1. Because $sup(\ell(x)) = 1$, $\ell(x_0) = x_0(\ell) > 1$, violating
+our assumption that $\|x_0\| = 1$.
+
+\paragraph{Problem 2}
+
+$x^*_n$ converging weak* to some $x^*$ is equivalent to saying $x^*(x)\to x^*(x)$
+for all $x$, meaning that by the uniform boundedness principle $x^*_n$ are norm
+bounded.
+
+Further, note that $X$ is isomorphic to a subset of $X^{**}$, and $X^*$ is Banach
+if $X$ is. Thus any weakly convergent sequence in $X$ is represented by a
+weak*ly convergent sequence in $X^{**}$, and is hence norm bounded.
+
+\paragraph{Problem 3}
+
+Suppose $x_i\to x$ weakly. This in particular means that for any $x^*$, for
+every $\varepsilon$ $x_i$ is eventually in the neighborhood $\{y\in X: |(y-x,
+x^*)| < \varepsilon\}$, as these are neighborhoods of $x$ in the weak topology.
+Thus $(x_i,x^*) \to (x,x^*)$.
+
+Conversely, suppose $(x_i,x^*)\to (x,x^*)$ for all $x^*$. Then given any
+weak neighborhood consisted of $\{(x^*_i,\varepsilon_i)\}$, because there
+are finite tuples per neighborhood, we simply choose $N$ such that $(x_i, x^*_j)
+< \varepsilon_j$ for all $j>N$. The arguments are exactly the same for
+weak* convergence.
+
+
+
+\end{document}

@@ -158,9 +158,35 @@ functional $\ell$ for which for all $y \in \overline{B_1(0)}$, $|\ell(y)-\ell(x)
 $, thus they never enter the $\varepsilon$ neighborhood of $x$ induced by $\ell$,
 contradicting our assumption that $x_i\to x$ weakly.
 
-$R\subset \bar{S}$:
+$R\subset \bar{S}$: I first prove a lemma: any weak neighborhood in an infinite
+dimensional vector space has elements
+of any norm greater than that of the point on which it is defined.
 
-% want to show: we can construct a sequence st for each neighborhood of x
-% x_i is eventually in it.
+Proof: let $\{\ell_i\}_{i=1}^n = A \in X^*$ define the neighborhood. First we
+show the intersection of their kernels is nontrivial. This is because $X$ can
+be written, for any $\ell_i$ as $M_i \oplus N_i$, where $M_i$ is the infinite
+dimensional kernel and $N$ a one-dimensional subspace isomorphic to $X/M_i$.
+Then given some $\ell_j$, $M_i\cap M_j$ is at most $|M_i|-|N_j|$ dimensional,
+which is still infinite. Thus the finite intersection of all $M_i$ must be
+infinite dimensional and nontrivial.
+
+Then let $y\neq 0$ be in the intersection of kernels of $\{\ell_i\}$. $x
++ \alpha y$ is in our neighborhood, and because the map $f:F\to
+F$ taking $\alpha$ to $\|x + \alpha y\|$ is continuous, and $f$
+can be arbitrarily large by making $\alpha$ arbitrarily large, by the intermediate
+value theorem we can find some $x+\alpha y$ of any norm larger than $\|x\|$
+inside the neighborhood of $x$.
+
+From this lemma, it follows that every neighborhood of $x_0$ in $\bar{S}$ (i.e.
+with norm less
+than 1) contains a vector of norm 1. Thus $x_0$ is a limit point of $S$.
+
+\paragraph{Problem 8}
+
+The lemma proved in the previous problem shows that any weak neighborhood has
+vectors of arbitrarily large norm, thus no nonempty bounded set can contain
+a neighborhood, let alone weak neighborhoods for all its elements. Thus no
+bounded set can be weakly open.
+
 
 \end{document}
