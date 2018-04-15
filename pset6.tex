@@ -16,9 +16,86 @@
 
 \paragraph{Problem 1}
 
-Let $B$ be the ball of $X$, and suppose it is weakly closed. For any $x_i\to
-x$, 
+Norm closed $\Rightarrow$ weakly closed: I show the complement of a norm-closed
+ball is weakly open. Let $x$ not be in the norm-closed ball, i.e have norm
+greater than 1. By Hahn Banach, there
+exists some $\ell$ with norm 1 such that $\ell(x) = \|x\|$. Let $\varepsilon =
+(\|x\|-1)/2$. Let $y$ be a vector inside the $\ell, \varepsilon$ neighborhood
+of $x$. Then
+\begin{displaymath}
+  \varepsilon > |\ell(y-x)| = |\ell(y) - \|x\||.
+\end{displaymath}
+Because $\ell(y)$ is bounded by $\|y\|$ from above, this means $|\|y\|-\|x\||<
+\varepsilon$, i.e. $\|y\| > 1$. Thus every element outside the norm-closed ball
+is contained in a weak neighborhood also outside the ball, meaning that the
+norm-closed ball is also weakly closed.
 
-% we know: if x is convergent in norm, it is thus norm convergent.
+Weakly closed $\Rightarrow$ norm closed: let $x_n$ with norm $\leq 1$ be Cauchy.
+For all $\ell \in \X^*$ and $\varepsilon > 0$, there exists some $N$ for which
+$m,n > N$ implies $\|x_n-x_m\| < \varepsilon/\|\ell\|$. Thus $\|\ell(x_n-x_m)\|
+<\varepsilon$, $x_n$ is weakly Cauchy, and converges to some $x$ in the weak
+closure of the ball. Suppose $x$ is not the norm limit of the sequence: then
+there is some closed $\varepsilon$ ball containing all $x_m$ for $m>N$ large
+enough that $x$ isn't in. But then by Hahn Banach, some linear functional
+strictly separates $x$ from all $x_m$ with $m>N$, so $x$ cannot be the weak limit
+of $x_n$, a contradiction. Thus if the unit ball is weakly closed, it is norm
+closed.
+
+\paragraph{Problem 2}
+
+Suppose not. Let $b_{n_k}$ be a pointwise convergent subsequence. Then let $x\in
+\ell^\infty$ be defined as alternating $1$ and $-1$ for each $n_k$th element and
+0 otherwise. Then $b_{n_k}(x)$ is not Cauchy, a contradiction.
+
+\paragraph{Problem 3}
+
+Lower semicontinuity of $\|\cdot\|_X$ in the weak topology: given some $x_0\in X$
+and $\varepsilon >0$, by Hahn-Banach, there exists some $\ell\in X^*$ such that
+$\ell(x_0) = \|x_0\|$. Consider $V$, the $\varepsilon$ neighborhood of $x_0$
+defined by $\ell$. For all $x\in V$,
+\begin{displaymath}
+  \varepsilon >|\ell(x-x_0)| = |\ell(x)-\|x_0\||.
+\end{displaymath}
+$\ell(x)$ is bounded from above by $\|x\|$, so $\|x\|$ is at most $\varepsilon$
+less than $\|x_0\|$.
+
+Lower semicontinuity of $\|\cdot\|_{X^*}$ in the weak* topology: by the above
+argument, $\|\cdot\|_{X^*}$ is lower semicontinuous in the weak topology. Because
+$X$ is reflexive, $(X^*,wk^*) = (X^*,wk)$, and in particular, every weak
+neighborhood of $X^*$ is a weak* neighborhood; thus $\|\cdot\|_{X^*}$ is lower
+semicontinuous in the weak* topology as well.
+
+Minima for lower semicontinuous functions on compact sets: suppose the statement
+is false, i.e. some lower semicontinuous $f$ gets arbitrarily large (negatively)
+on a weakly compact set (note: both norms are weakly lower semicontinous). Then
+let $x_n$ be a sequence of points with $f(x_n) < -n$. Because weakly compact
+sets are weakly sequentially compact, there exists some weakly convergent
+subsequence $x_{n_k}\to x$. This means there exists arbitrarily negative values of
+$f$ in every neighborhood of $x$, and thus $f$ can't both be well defined and
+lower semicontinuous, a contradiction.
+
+Proof of statement: let $d$ be the distance between $x_0$ and $M$, the subspace
+it is not a member of. Let $B$ be the closed $2d$ ball around $x_0$, and consider
+$B\cap M$. Because both are closed and $B$ is weakly compact by the reflexivity
+of $X$, the lowersemicontinuous function $f(y) = \|x_0-y\|$ attains its minimum
+in $B\cap M$ at some $y_0$ (closed subsets of compact sets are compact).
+Note then that:
+\begin{displaymath}
+  f(y_0) = \min_{y\in B\cap M}\|x_0-y\| = \min_{y\in M}\|x_0-y\| = \inf_{y\in M}
+  \|x_0-y\|,
+\end{displaymath}
+as no points of $M$ outside $B$ can be closer to $x_0$ than the ones within.
+
+\paragraph{Problem 4}
+Weak convergence $\Rightarrow$ norm bounded, pointwise convergent: for pointwise
+convergence, note that evaluation at some point $x$ defines a bounded linear
+functional. Thus if $f_n$ converge for all linear functionals they must converge
+pointwise. Suppose they're not norm bounded, then for each $k$ there exists
+some $f_{n_k}(x_k) > k$. (For ease of notation, let's relabel them $f_k,x_k$.)
+Then by the compactness of the unit interval there exists some subsequence
+converging to some $x_0 \in [0,1]$.
+
+
+
 
 \end{document}
