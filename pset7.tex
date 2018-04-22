@@ -18,17 +18,24 @@
 \end{center}
 
 \paragraph{Problem 1}
-Lemma: if $\l \in \s_r(T)$, $\l \in \s_p(T^*)$.
+Lemma: if $\l \in \s_r(T)$, $\bar{\l} \in \s_p(T^*)$. Proof: if the range of
+$T - \l I$ is not dense, by Hahn Banach there exists a linear functional
+vanishing on the entirety of the range. Then, for all $v$,
+\begin{displaymath}
+  0 = (v^*,(T-\l I)v) = ((T^*-\bar{\l}I)v^*, v),
+\end{displaymath}
+and thus $\l$ is an eigenvalue for $T^*$.
+
 
 \subparagraph{$\s_p(R)$, $\s_r(L) = \O$:}
-Right shift operator: firstly, for all $\l$, $R-\l I$ has a trivial kernel.
+For all $\l$, $R-\l I$ has a trivial kernel.
 Proof: if $\l$ is zero, then it has a trivial kernel. For $\l \neq 0$, 
 let $v$ be in the kernel of $R-\l I$. Then as $Rv = \l v$, and as $(Rv)_1 =
 0$ by the nature of the right-shift operation, $v_1 = 0$. Additionally, if
 $v_n = 0$, $(Rv)_{n+1} = \lambda v_n = 0$, and hence $v_{n+1} = 0$. By induction,
 $v_n = 0$ for all $n$. This shows that there are no eigenvectors for any value
-of $\l$, and thus $\s_p(R) = \s_r(L) = \O$, and it also means we've shown
-injectivity for all values of $\l$ (for the subsequent spectra).
+of $\l$, and thus $\s_p(R) = \s_r(L) = \O$. Finally, by our lemma, $\s_r(L)
+= \O$.
 
 \subparagraph{$\s_p(L)$, $\s_r(R) = \{\l\in\C: |\l |<1\}$:}
 Consider the vector $(1, \l, \l^2, \l^3, \ldots)$. $L - \l I$ applied to this
@@ -41,6 +48,8 @@ has nonzero element $v_k$. As $Lv = \l v$, $v_{k+1} = \l v_k$. And by induction
 all subsequent elements $v_n$ have $|v_n| = |v_k|$, which is not a square-summable
 sequence, a contradiction.
 
+By question 4, combined with the emptiness of $\s_p(R)$ imply $\s_p(L) = \s_r(R)$.
+
 
 
 \subparagraph{$\rho(L), \rho(R) = \{\l\in\C: |\l|>1\}$:}
@@ -50,8 +59,8 @@ Neumann series: $T/\l$ has norm less than one so $T/\l - I$ has a bounded invers
 Thus $\rho(L), \rho(R) \supset \{\l\in\C: |\l|>1\}$.
 
 To show equality, note that the spectrum of an operator is closed. $\{\l\in\C:
-|\l|>1\}$ is in the closure of $\s_r(L) \cup \s_p(R)$, thus $\{\l\in\C: |\l
-|>1\}$ firstly cannot be in $\rho$ of either operator, and secondly must be the
+|\l|=1\}$ is in the closure of $\s_r(L) \cup \s_p(R)$, thus it
+firstly cannot be in $\rho$ of either operator, and secondly must be the
 continuous spectrum of both operators by elimination.
 
 \paragraph{Problem 2}
