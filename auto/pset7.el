@@ -16,6 +16,7 @@
     "enumitem")
    (TeX-add-symbols
     "R"
-    "s"))
+    "s"
+    "C"))
  :latex)
 
