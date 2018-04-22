@@ -1,0 +1,87 @@
+\documentclass[12pt]{article}
+\newcommand{\R}{\mathbb{R}}
+\renewcommand{\H}{\mathcal{H}}
+\newcommand{\s}{\sigma}
+\renewcommand{\l}{\lambda}
+\usepackage{microtype}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[margin=1.25in]{geometry}
+\usepackage{enumitem}
+\begin{document}
+\begin{center}
+  Lewis Ho\\
+  Functional Analysis\\
+  Problem Set 7
+\end{center}
+
+\paragraph{Problem 1}
+Right shift operator: firstly, for all $\l$, $R-\l I$ has a trivial kernel.
+Proof: if $\l$ is zero, then it has a trivial kernel. For $\l \neq 0$, 
+let $v$ be in the kernel of $R-\l I$. Then as $Rv = \l v$, and as $(Rv)_1 =
+0$ by the nature of the right-shift operation, $v_1 = 0$. Additionally, if
+$v_n = 0$, $(Rv)_{n+1} = \lambda v_n = 0$, and hence $v_{n+1} = 0$. By induction,
+$v_n = 0$ for all $n$. This shows that there are no eigenvectors for any value
+of $\l$, and thus $\s_p(R) = \O$, and it also means we've shown injectivity
+for all values of $\l$ (for the subsequent spectra).
+
+$s_c(R) \supset \{\l\in \mathbb{C}: |\l |=1\}$: first I show the range of $R-\l
+I$ is dense. Consider some $v = \sum a_ie_i \in X$. Then let $w_n$ have the
+first element $-a_i/\l$, then subsequent terms $-((w_n)_{k-1}-a_k)/\lambda$
+until the $n$th element. $R-\l I$ applied to $w_n$ thus agrees with $v$ on the
+first $n$ elements. Further:
+\begin{displaymath}
+  \|(R-\l I)w_n-v\|^2 \leq \sum_{k=n}^\infty\|a_k\|^2
+\end{displaymath}
+which goes to zero as $n\to \infty$ as $v$ is square summable, thus $(R-\l I)w_n
+\to v$.
+
+
+\paragraph{Problem 2}
+I show no $\l$ can exist where $A = (T-\l I)$ has a trivial kernel and a
+range that is not dense.
+
+If $A$'s kernel is trivial, $\l \notin \{\l_i\}$, else $e_i$ is in the kernel of
+$A$. In this case, note further that $A(e_i/(\l_i-\l)) = e_i$, so each $e_i$ is
+in the range, and finite linear combinations of $e_i/(\l_i-\l)$ are members of
+$\ell^2(\mathbb{N})$, thus because finite linear combinations of $e_i$ are dense,
+the range is dense. Thus no lambda exists in $\sigma_r(T)$.
+
+I now show $\lambda \in \overline{\{\l_i\}} \setminus \{\l_i\} \in \sigma_c(T)$.
+Let $\l$ be a member of the set. Because $\l$ isn't an eigenvalue, by the same
+argument as in the previous paragraph $A = T-\l I$ is injective and the range
+is dense. To show that the range isn't closed, let $\l_n\to \l$, with $|\l_n-\l|
+< 1/n^2$. Then let $v$ be the vector with $1/n$ in the component corresponding
+to $\l_n$ in $T$ and 0 otherwise. The formal preimage of $v$ is the sequence with
+$1/(n\l_n-n\l)$ in the positions corresponding to each $\l_n \in T$, but as
+$|\l_n-\l| = 1/n^2$, the preimage of $v$ isn't in $\ell^2(\mathbb{N})$ as it
+isn't square-summable. Thus $\l \in \sigma_c(T)$.
+
+\paragraph{Problem 3}
+All such operators map $\ell^2(\mathbb{N})$ to itself.
+a) 0 is a compact operator, and $0 - 0I$ has a nontrivial kernel so 0 is in the
+point spectrum. b) $T = T - 0I$ 
+ mapping $e_i \to e_i/k$ has all coordinate vectors in its
+range and thus has a dense range, but $(1,1/2,1/3,\ldots)$ has the formal
+preimage $(1,1,1,\ldots)$, and thus the range isn't closed. It is compact
+because it is the norm limit of finite rank operators sending $e_k\to e_k/k$
+for $k < n$. c) $T = T- 0I$ sending $e_k \to e_{2k}/k$ is compact by the same
+argument as the previous, has no kernel, but also has a range that isn't dense
+as, for example, $e_1$ cannot be approximated by anything in its range.
+
+\paragraph{Problem 4}
+Let $\l \in \s_p(T)$ but $\notin \s_p(T^*)$, specifically, let $Tv = \l v$. Then
+\begin{displaymath}
+  T^*x^*(v) = x^*(Tv) = \lambda x^*(v).
+\end{displaymath}
+I now show that the range of $T-\l I$ cannot be dense. Let $v^*$ be the vector
+of norm 1 such that $v^*(v) = \|v\|$, which is possible by Hahn-Banach. Suppose
+the range is dense, and let $x_n^*$ be a sequence of vectors such that
+$(T-\l I)x_n^*\to v^*$. Consider then
+\begin{displaymath}
+  (T-\l I)x_n^*(v) = Tx_n^*(v)-\l x_n^*(v) = \l x_n^*(v)-\l x_n^*(v) = 0,
+\end{displaymath}
+which means $x^*_n$ doesn't converge weak*ly to $v^*$, and hence also not in the
+norm topology, a contradiction. Thus $\l \in \s_r(T^*)$.
+
+\end{document}

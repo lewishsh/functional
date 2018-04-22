@@ -11,7 +11,8 @@
 \begin{center}
   Lewis Ho\\
   Functional Analysis\\
-  Problem Set 6
+  Problem Set 6\\
+  Collaborator: Anton Xue
 \end{center}
 
 \paragraph{Problem 1}
@@ -90,11 +91,21 @@ as no points of $M$ outside $B$ can be closer to $x_0$ than the ones within.
 Weak convergence $\Rightarrow$ norm bounded, pointwise convergent: for pointwise
 convergence, note that evaluation at some point $x$ defines a bounded linear
 functional. Thus if $f_n$ converge for all linear functionals they must converge
-pointwise. Suppose they're not norm bounded, then for each $k$ there exists
-some $f_{n_k}(x_k) > k$. (For ease of notation, let's relabel them $f_k,x_k$.)
-Then by the compactness of the unit interval there exists some subsequence
-converging to some $x_0 \in [0,1]$.
+pointwise. Additionally, as all vectors $f \in C[0,1]$ can be identified with
+elements in the double dual $\hat{f}$, if $f_n$ converges weakly, $\hat{f}_n$
+converges weak*ly, and by the uniform boundedness condition must be norm bounded
+in the double dual and hence the space itself.
 
+Norm bounded, pointwise convergence $\Rightarrow$ weak convergence: let $f_n$ be
+a norm bounded, pointwise converging sequence in $C[0,1]$, and $\mu \in BV[0,1]$,
+the dual of $C[0,1]$. Because $f_n$ are collectively norm bounded, we can apply
+the dominated convergence theorem as follows:
+\begin{displaymath}
+  \lim_{n\to\infty}\mu(f_n) = \lim_{n\to\infty}\int_0^1f_nd\mu =
+  \int_0^1\lim_{n\to\infty}f_nd\mu = \int_0^1fd\mu = \mu(f).
+\end{displaymath}
+
+Unfortunately I don't know enough measure theory to come up with an example.
 
 
 
